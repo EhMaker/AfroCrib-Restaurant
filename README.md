@@ -35,6 +35,7 @@ A modern, responsive restaurant website featuring African cuisine with email OTP
 ## 🔐 Authentication
 
 The website uses Supabase's email OTP authentication system:
+
 - No passwords required
 - Secure one-time passwords sent via email
 - Modal-based verification for seamless UX
@@ -42,11 +43,13 @@ The website uses Supabase's email OTP authentication system:
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/YOUR_USERNAME/afrocrib-restaurant.git
 ```
 
 2. Set up Supabase:
+
    - Create a Supabase project
    - Run the SQL commands from `supabase-setup.sql`
    - Update Supabase credentials in `auth-simple.js`
