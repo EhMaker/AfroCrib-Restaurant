@@ -391,6 +391,187 @@
             </div>
         </section>
     </main>
+
+   <!-- Checkout Modal -->
+   <div id="checkout-modal" class="checkout-modal" role="dialog" aria-labelledby="checkout-title" aria-hidden="true">
+      <div class="checkout-modal-overlay"></div>
+      <div class="checkout-modal-content">
+         <button type="button" class="checkout-close-btn" aria-label="Close checkout">
+            <i class="fas fa-times"></i>
+         </button>
+
+         <div class="checkout-header">
+            <i class="fas fa-shopping-bag"></i>
+            <h2 id="checkout-title">Complete Your Order</h2>
+            <p>Please provide your details to complete the purchase</p>
+         </div>
+
+         <form id="checkout-form" class="checkout-form">
+            <!-- Step 1: Customer Information -->
+            <div class="checkout-step active" data-step="1">
+               <h3><i class="fas fa-user"></i> Customer Information</h3>
+               
+               <div class="form-group">
+                  <label for="customer-name">Full Name *</label>
+                  <input type="text" id="customer-name" name="customerName" required 
+                         placeholder="Enter your full name">
+               </div>
+
+               <div class="form-group">
+                  <label for="customer-email">Email Address *</label>
+                  <input type="email" id="customer-email" name="customerEmail" required 
+                         placeholder="your.email@example.com">
+               </div>
+
+               <div class="form-group">
+                  <label for="customer-phone">Phone Number *</label>
+                  <input type="tel" id="customer-phone" name="customerPhone" required 
+                         placeholder="+234 XXX XXX XXXX">
+               </div>
+
+               <div class="form-group">
+                  <label for="delivery-address">Delivery Address *</label>
+                  <textarea id="delivery-address" name="deliveryAddress" required 
+                            placeholder="Enter your complete delivery address" rows="3"></textarea>
+               </div>
+
+               <button type="button" class="checkout-next-btn" data-next="2">
+                  Continue to Payment <i class="fas fa-arrow-right"></i>
+               </button>
+            </div>
+
+            <!-- Step 2: Payment Method -->
+            <div class="checkout-step" data-step="2">
+               <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+               
+               <div class="payment-options">
+                  <label class="payment-option">
+                     <input type="radio" name="paymentMethod" value="card" required>
+                     <div class="payment-card">
+                        <i class="fas fa-credit-card"></i>
+                        <div>
+                           <strong>Debit/Credit Card</strong>
+                           <span>Visa, Mastercard, Verve</span>
+                        </div>
+                     </div>
+                  </label>
+
+                  <label class="payment-option">
+                     <input type="radio" name="paymentMethod" value="transfer" required>
+                     <div class="payment-card">
+                        <i class="fas fa-university"></i>
+                        <div>
+                           <strong>Bank Transfer</strong>
+                           <span>Transfer to our account</span>
+                        </div>
+                     </div>
+                  </label>
+
+                  <label class="payment-option">
+                     <input type="radio" name="paymentMethod" value="cash" required>
+                     <div class="payment-card">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <div>
+                           <strong>Cash on Delivery</strong>
+                           <span>Pay when you receive</span>
+                        </div>
+                     </div>
+                  </label>
+
+                  <label class="payment-option">
+                     <input type="radio" name="paymentMethod" value="mobile" required>
+                     <div class="payment-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                           <strong>Mobile Payment</strong>
+                           <span>PayStack, Flutterwave</span>
+                        </div>
+                     </div>
+                  </label>
+               </div>
+
+               <div class="checkout-actions">
+                  <button type="button" class="checkout-back-btn" data-back="1">
+                     <i class="fas fa-arrow-left"></i> Back
+                  </button>
+                  <button type="submit" class="checkout-submit-btn">
+                     <i class="fas fa-check"></i> Place Order
+                  </button>
+               </div>
+            </div>
+
+            <!-- Step 3: Order Confirmation -->
+            <div class="checkout-step" data-step="3">
+               <div class="checkout-success">
+                  <i class="fas fa-check-circle success-icon"></i>
+                  <h3>Order Placed Successfully!</h3>
+                  <p>Thank you for your order. Your food is being prepared.</p>
+                  
+                  <div class="delivery-id-box">
+                     <label>Your Delivery ID</label>
+                     <div class="delivery-id-display">
+                        <span id="delivery-id-text">AFRO-XXXX-XXXX</span>
+                        <button type="button" class="copy-id-btn" aria-label="Copy delivery ID">
+                           <i class="fas fa-copy"></i>
+                        </button>
+                     </div>
+                     <small>Save this ID to track your order</small>
+                  </div>
+
+                  <div class="order-summary-box">
+                     <h4>Order Summary</h4>
+                     <div class="summary-item">
+                        <span>Customer:</span>
+                        <strong id="confirm-name">-</strong>
+                     </div>
+                     <div class="summary-item">
+                        <span>Email:</span>
+                        <strong id="confirm-email">-</strong>
+                     </div>
+                     <div class="summary-item">
+                        <span>Phone:</span>
+                        <strong id="confirm-phone">-</strong>
+                     </div>
+                     <div class="summary-item">
+                        <span>Payment:</span>
+                        <strong id="confirm-payment">-</strong>
+                     </div>
+                     <div class="summary-item">
+                        <span>Total Amount:</span>
+                        <strong id="confirm-total">₦11,556.25</strong>
+                     </div>
+                     <div class="summary-item">
+                        <span>Estimated Delivery:</span>
+                        <strong>30-45 minutes</strong>
+                     </div>
+                  </div>
+
+                  <button type="button" class="checkout-done-btn">
+                     <i class="fas fa-home"></i> Continue Shopping
+                  </button>
+               </div>
+            </div>
+         </form>
+
+         <div class="checkout-progress">
+            <div class="progress-step active" data-step="1">
+               <div class="step-number">1</div>
+               <span>Information</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="2">
+               <div class="step-number">2</div>
+               <span>Payment</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="3">
+               <div class="step-number">3</div>
+               <span>Confirmation</span>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <!-- Footer -->
    <footer class="section-p1" role="contentinfo">
         <div class="footer-container">
@@ -494,6 +675,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="sale.js"></script>
+    <script src="checkout.js"></script>
 </body>
 </html>
  
