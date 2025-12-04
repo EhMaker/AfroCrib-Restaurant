@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Something</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="sale.css">
+    <link rel="stylesheet" href="verify-modal.css">
+</head>
+<body>
+    <section id="header">
+        <div class="restaurant-name">
+            <div class="restaurant-letters">
+                <span class="afr-text">AFR</span>
+                <a href="index.html" aria-label="Go to homepage">
+                    <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="Restaurant logo">
+                </a>
+                <span class="crib-text">CRIB</span>
+            </div>
+        </div>
+            <div>
+                <ul id="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a  href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a class="active"  href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="cart.html" aria-label="Go to shopping cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    <li><a href="#" id="close" aria-label="Close menu"><i class="far fa-times"></i></a></li>
+                </ul>
+            </div>
+                <div id="mobile">
+                    <a href="cart.html" aria-label="Go to shopping cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    <i id="bar" class="fas fa-outdent"></i>
+                </div>
+    </section>
+
+    <section id="page-header" class="contact-header">
+        <h2>#Let's_talk</h2>
+        <p>LEAVE A MESSAGE. We love to hear from you!</p>
+    </section>
+
+    <section id="contact-details" class="section-p1">
+       <div class="details">
+        <span>GET IN TOUCH</span>
+        <h2>Visit one of our restaurants</h2>
+        <h3>Head of Office</h3>
+        <ul>
+            <li>
+                <i class="fal fa-map"></i>
+                <p> Otunba Jobi Fele Way
+                    Agidingbi, Ojodu/Agidingbi/Omole 101233, Lagos</p>
+            </li>
+            <li>
+                <i class="far fa-envelope"></i>
+                <p> SuiteTaste@email.com</p>
+            </li>
+            <li>
+                <i class="fas fa-phone-alt"></i>
+                <p>+234 8105435361</p>
+            </li>
+            <li>
+                <i class="far fa-clock"></i>
+                <p> Monday to Saturday: 9:00am to 16:00pm</p>
+            </li>
+       </div>
+       <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.177753481049!2d3.358178274348735!3d6.624830193369414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b93b8b865ef6d%3A0xab91198794789c43!2sOtunba%20Jobi%20Fele%20Way%2C%20Agidingbi%2C%20Ojodu%2FAgidingbi%2FOmole%20101233%2C%20Lagos!5e0!3m2!1sen!2sng!4v1729672665340!5m2!1sen!2sng" width="600" height="450" class="contact-map" allowfullscreen="" loading="lazy" title="Restaurant location on Google Maps"></iframe>
+       </div>
+    </section>
+
+    <section id="form-details">
+        <form action="">
+            <span>LEAVE A MESSAGE</span>
+            <h2>We love to hear from you</h2>
+            <input type="text" placeholder="Your Name">
+            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Subject">
+            <textarea cols="30" rows="10" placeholder="Your Message"></textarea>
+            <button type="submit" class="normal">Submit</button>
+        </form>
+
+        <div class="people">
+            <div>
+                <img src="Saleimages/cake1.png" height="65px" alt="Monday Samuel - Senior Marketing Manager">
+                <p><span> Monday Samuel</span> Senior Marketing Manager <br> Phone: +234 8110182535 <br>Email: emmezemmy38@gmail.com</p>
+            </div>
+            <div>
+                <img src="Saleimages/cake1.png" height="65px" alt="Ayomide Ariyo - Senior Marketing Manager">
+                <p><span> Ayomide Ariyo</span> Senior Marketing Manager <br> Phone: +234 9126148720 <br>Email: emmezemmy38@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="section-p1 section-m1 ">
+         <div class="newstext">
+            <h4>Get the Latest Flavors & Deals</h4>
+            <p>Delicious updates and members-only deals. <span>special offers</span></p>
+         </div>
+         <div class="form">
+            <input type="email" id="newsletter-email" placeholder="Your email address" required>
+            <button type="button" id="join-btn" class="normal">Join Now</button>
+         </div>
+   </section>
+
+   <!-- Verification Modal -->
+   <div id="verify-modal-overlay" class="verify-modal-overlay">
+      <div class="verify-modal">
+         <button id="verify-modal-close" class="verify-modal-close">×</button>
+         
+         <div class="verify-modal-header">
+            <div class="verify-modal-icon">📧</div>
+            <h2>Check Your Email</h2>
+            <p>We sent a 6-digit code to:</p>
+         </div>
+
+         <div class="verify-email-display" id="verify-modal-email">Loading...</div>
+
+         <div id="verify-modal-message" class="verify-message"></div>
+
+         <form id="verify-modal-form" onsubmit="return false;">
+            <div class="verify-form-group">
+               <label for="verify-modal-otp">Verification Code</label>
+               <input 
+                  type="text" 
+                  id="verify-modal-otp" 
+                  placeholder="000000" 
+                  maxlength="6"
+                  pattern="[0-9]{6}"
+                  required
+                  autocomplete="one-time-code"
+               >
+            </div>
+
+            <button type="button" id="verify-modal-btn" class="verify-btn verify-btn-primary">
+               Verify & Login
+            </button>
+            <button type="button" id="verify-modal-resend" class="verify-btn verify-btn-secondary">
+               Resend Code
+            </button>
+         </form>
+      </div>
+   </div>
+
+   <!-- Footer -->
+   <footer class="section-p1" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section footer-brand">
+                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" 
+                     class="logo" 
+                     height="50" 
+                     alt="Restaurant logo">
+                     <h2>AFROCRIB Restaurant</h2>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <div class="contact-info">
+                    <p><strong>Address:</strong> Wellington Road, Street 32 A4, Ikeja</p>
+                    <p><strong>Phone:</strong> <a href="tel:+2348105435361">+234 810 543 5361</a></p>
+                    <p><strong>Hours:</strong> 9:00 AM - 6:00 PM, Monday - Saturday</p>
+                </div>
+                <div class="social-follow">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-link">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>About</h4>
+                <nav aria-label="About links">
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <nav aria-label="Account links">
+                    <ul class="footer-links">
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                        <li><a href="#">My Wishlist</a></li>
+                        <li><a href="#">Track My Order</a></li>
+                        <li><a href="#">Help & Support</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="AppGoogle">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="40">
+                </div>
+                <p>Secured Pay Gateway</p>
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="Payment security badge - PayPal, Visa, Mastercard" height="35">
+            </div>
+                    <div class="footer-section-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 AFROCRIB Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+        </div>
+
+    </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="auth-simple.js"></script>
+   <script src="verify-modal.js"></script>
+   <script>
+      // Handle Join Now button click
+      document.getElementById('join-btn')?.addEventListener('click', async () => {
+         const emailInput = document.getElementById('newsletter-email');
+         const email = emailInput.value.trim();
+         const joinBtn = document.getElementById('join-btn');
+
+         // Validate email
+         if (!email) {
+            alert('Please enter your email address');
+            emailInput.focus();
+            return;
+         }
+
+         if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            emailInput.focus();
+            return;
+         }
+
+         // Show loading
+         showLoading(joinBtn, true);
+
+         try {
+            // Send OTP using Supabase
+            const { data, error } = await supabase.auth.signInWithOtp({
+               email: email,
+               options: {
+                  shouldCreateUser: true
+               }
+            });
+
+            if (error) throw error;
+
+            // Success - show verification modal
+            showVerifyModal(email);
+            emailInput.value = '';
+
+         } catch (error) {
+            console.error('Join error:', error);
+            alert(error.message || 'Failed to send verification code. Please try again.');
+         } finally {
+            showLoading(joinBtn, false, 'Join Now');
+         }
+      });
+
+      // Allow Enter key to submit
+      document.getElementById('newsletter-email')?.addEventListener('keypress', (e) => {
+         if (e.key === 'Enter') {
+            document.getElementById('join-btn').click();
+         }
+      });
+   </script>
+   <script src="sale.js"></script>   
+</body>
+</html>
+ 

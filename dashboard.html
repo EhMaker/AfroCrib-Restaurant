@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AFROCRIB Restaurant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            color: #667eea;
+            font-size: 24px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-email {
+            color: #666;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+
+        .content {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .welcome h2 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .quick-link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .quick-link-card .icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .quick-link-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .quick-link-card p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .info-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .info-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .info-section ul {
+            list-style: none;
+            color: #666;
+        }
+
+        .info-section ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-section ul li strong {
+            color: #333;
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>🍽️ AFROCRIB Dashboard</h1>
+            </div>
+            <div class="user-info">
+                <span class="user-email" id="userEmail">Loading...</span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="welcome">
+                <div class="welcome-icon">👋</div>
+                <h2>Welcome Back!</h2>
+                <p>You're successfully logged into your AFROCRIB account</p>
+            </div>
+
+            <div class="quick-links">
+                <a href="shop.html" class="quick-link-card">
+                    <div class="icon">🛒</div>
+                    <h3>Browse Menu</h3>
+                    <p>Explore our delicious African dishes</p>
+                </a>
+
+                <a href="cart.html" class="quick-link-card">
+                    <div class="icon">🛍️</div>
+                    <h3>My Cart</h3>
+                    <p>View your current orders</p>
+                </a>
+
+                <a href="blog.html" class="quick-link-card">
+                    <div class="icon">📰</div>
+                    <h3>Latest News</h3>
+                    <p>Read our food blog & updates</p>
+                </a>
+
+                <a href="contact.html" class="quick-link-card">
+                    <div class="icon">💬</div>
+                    <h3>Contact Us</h3>
+                    <p>Get in touch with our team</p>
+                </a>
+            </div>
+
+            <div class="info-section">
+                <h3>📋 Account Information</h3>
+                <ul id="accountInfo">
+                    <li><strong>Status:</strong> <span id="accountStatus">Active</span></li>
+                    <li><strong>Email:</strong> <span id="accountEmail">Loading...</span></li>
+                    <li><strong>User ID:</strong> <span id="accountId">Loading...</span></li>
+                    <li><strong>Last Login:</strong> <span id="lastLogin">Just now</span></li>
+                </ul>
+            </div>
+
+            <div class="info-section" style="margin-top: 20px;">
+                <h3>ℹ️ What's Next?</h3>
+                <ul style="list-style: disc; padding-left: 20px;">
+                    <li>Browse our menu and add items to your cart</li>
+                    <li>Complete your profile for faster checkout</li>
+                    <li>Subscribe to our newsletter for exclusive deals</li>
+                    <li>Follow us on social media for updates</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth-simple.js"></script>
+
+    <script>
+        // Protect this page - redirect if not logged in
+        requireAuth();
+
+        // Load user data
+        async function loadUserData() {
+            try {
+                const user = await getCurrentUser();
+
+                if (user) {
+                    // Display user email in multiple places
+                    document.getElementById('userEmail').textContent = user.email;
+                    document.getElementById('accountEmail').textContent = user.email;
+                    document.getElementById('accountId').textContent = user.id.substring(0, 8) + '...';
+
+                    // Format last login
+                    const lastSignIn = new Date(user.last_sign_in_at);
+                    document.getElementById('lastLogin').textContent = lastSignIn.toLocaleString();
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            if (confirm('Are you sure you want to logout?')) {
+                await logout();
+            }
+        });
+
+        // Load user data when page loads
+        loadUserData();
+    </script>
+</body>
+</html>

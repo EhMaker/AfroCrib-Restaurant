@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Something</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="sale.css">
+    <link rel="stylesheet" href="verify-modal.css">
+</head>
+<body>
+    <section id="header">
+        <div class="restaurant-name">
+            <div class="restaurant-letters">
+                <span class="afr-text">AFR</span>
+                <a href="index.html" title="Go to Homepage">
+                    <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="AFROCRIB Restaurant Logo">
+                </a>
+                <span class="crib-text">CRIB</span>
+            </div>
+        </div>
+            <div>
+                <ul id="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a class="active" href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="cart.html" title="View Shopping Cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="sr-only">Shopping Cart</span></a></li>
+                    <li><a href="#" id="close" title="Close Menu"><i class="far fa-times"></i><span class="sr-only">Close</span></a></li>
+                </ul>
+            </div>
+                <div id="mobile">
+                    <a href="cart.html" title="View Shopping Cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="sr-only">Shopping Cart</span></a>
+                    <i id="bar" class="fas fa-outdent"></i>
+                </div>
+    </section>
+
+    <section id="page-header" class="about-header">
+        <div class="header-content">
+            <h2>About AFROCRIB</h2>
+            <p>Discover our passion for authentic flavors and exceptional dining experiences</p>
+        </div>
+    </section>
+
+    <section id="about-head" class="section-p1">
+        <div class="about-content">
+            <div class="about-logo-section">
+                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" alt="AFROCRIB - Premium Restaurant Experience Logo">
+            </div>
+            <div class="about-text-content">
+                <h2>Our Story</h2>
+                <p>At AFROCRIB, we believe that food is more than just sustenance – it's a celebration of culture, tradition, and the joy of sharing exceptional flavors with the people you love. Founded with a passion for authentic cuisine and a commitment to quality, we've dedicated ourselves to bringing you the finest culinary experiences.</p>
+                
+                <p>Our journey began with a simple vision: to create a space where traditional recipes meet modern excellence, where every dish tells a story, and where every meal becomes a memorable experience. We source the freshest ingredients, honor time-tested cooking methods, and infuse every creation with the love and care that makes dining truly special.</p>
+                
+                <abbr title="Creating stunning culinary moments">Create a stunning moment</abbr>
+                <br><br>
+
+                <div class="scrolling-text" data-text="Our Dream is that you are satisfied - Classic Taste - Healthy Food - Excellence Experience... We also preserve our Integrity and Commitment to Quality."></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="section-p1 section-m1">
+        <div class="newsletter-container">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest dishes and <span>special offers</span></p>
+            </div>
+            <div class="form">
+                <input type="email" id="newsletter-email" placeholder="Your email address" aria-label="Email address for newsletter">
+                <button type="button" id="join-btn" class="normal">Join now</button>
+            </div>
+        </div>
+    </section>
+
+   <!-- Verification Modal -->
+   <div id="verify-modal-overlay" class="verify-modal-overlay">
+      <div class="verify-modal">
+         <button id="verify-modal-close" class="verify-modal-close">×</button>
+         
+         <div class="verify-modal-header">
+            <div class="verify-modal-icon">📧</div>
+            <h2>Check Your Email</h2>
+            <p>We sent a 6-digit code to:</p>
+         </div>
+
+         <div class="verify-email-display" id="verify-modal-email">Loading...</div>
+
+         <div id="verify-modal-message" class="verify-message"></div>
+
+         <form id="verify-modal-form" onsubmit="return false;">
+            <div class="verify-form-group">
+               <label for="verify-modal-otp">Verification Code</label>
+               <input 
+                  type="text" 
+                  id="verify-modal-otp" 
+                  placeholder="000000" 
+                  maxlength="6"
+                  pattern="[0-9]{6}"
+                  required
+                  autocomplete="one-time-code"
+               >
+            </div>
+
+            <button type="button" id="verify-modal-btn" class="verify-btn verify-btn-primary">
+               Verify & Login
+            </button>
+            <button type="button" id="verify-modal-resend" class="verify-btn verify-btn-secondary">
+               Resend Code
+            </button>
+         </form>
+      </div>
+   </div>
+
+   <!-- Footer -->
+   <footer class="section-p1" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section footer-brand">
+                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" 
+                     class="logo" 
+                     height="50" 
+                     alt="Restaurant logo">
+                     <h2>AFROCRIB Restaurant</h2>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <div class="contact-info">
+                    <p><strong>Address:</strong> Wellington Road, Street 32 A4, Ikeja</p>
+                    <p><strong>Phone:</strong> <a href="tel:+2348105435361">+234 810 543 5361</a></p>
+                    <p><strong>Hours:</strong> 9:00 AM - 6:00 PM, Monday - Saturday</p>
+                </div>
+                <div class="social-follow">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-link">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>About</h4>
+                <nav aria-label="About links">
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <nav aria-label="Account links">
+                    <ul class="footer-links">
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                        <li><a href="#">My Wishlist</a></li>
+                        <li><a href="#">Track My Order</a></li>
+                        <li><a href="#">Help & Support</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="AppGoogle">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="40">
+                </div>
+                <p>Secured Pay Gateway</p>
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="Payment security badge - PayPal, Visa, Mastercard" height="35">
+            </div>
+                    <div class="footer-section-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 AFROCRIB Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+        </div>
+
+
+    </footer>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="auth-simple.js"></script>
+   <script src="verify-modal.js"></script>
+   <script>
+      // Handle Join Now button click
+      document.getElementById('join-btn')?.addEventListener('click', async () => {
+         const emailInput = document.getElementById('newsletter-email');
+         const email = emailInput.value.trim();
+         const joinBtn = document.getElementById('join-btn');
+
+         // Validate email
+         if (!email) {
+            alert('Please enter your email address');
+            emailInput.focus();
+            return;
+         }
+
+         if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            emailInput.focus();
+            return;
+         }
+
+         // Show loading
+         showLoading(joinBtn, true);
+
+         try {
+            // Send OTP using Supabase
+            const { data, error } = await supabase.auth.signInWithOtp({
+               email: email,
+               options: {
+                  shouldCreateUser: true
+               }
+            });
+
+            if (error) throw error;
+
+            // Success - show verification modal
+            showVerifyModal(email);
+            emailInput.value = '';
+
+         } catch (error) {
+            console.error('Join error:', error);
+            alert(error.message || 'Failed to send verification code. Please try again.');
+         } finally {
+            showLoading(joinBtn, false, 'Join now');
+         }
+      });
+
+      // Allow Enter key to submit
+      document.getElementById('newsletter-email')?.addEventListener('keypress', (e) => {
+         if (e.key === 'Enter') {
+            document.getElementById('join-btn').click();
+         }
+      });
+   </script>
+   <script src="sale.js"></script>   
+</body>
+</html>
+ 

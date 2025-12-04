@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Delicious Meals</title>
+    <meta name="description" content="Review and checkout your delicious meal selections">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="sale.css">
+</head>
+<body>
+    <header id="header" role="banner">
+        <nav class="navbar-container" role="navigation" aria-label="Main navigation">
+            <div class="restaurant-name">
+                <div class="restaurant-letters">
+                    <span class="afr-text">AFR</span>
+                    <a href="index.html" class="logo-link" aria-label="Go to homepage">
+                        <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="Restaurant logo">
+                    </a>
+                    <span class="crib-text">CRIB</span>
+                </div>
+            </div>   
+            <div class="nav-wrapper">
+                <ul id="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag">
+                        <a class="active cart-icon" 
+                           href="cart.html" 
+                           aria-label="Shopping cart">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <span class="cart-badge" aria-label="3 items in cart">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <button id="close" 
+                                class="close-btn" 
+                                aria-label="Close mobile menu"
+                                type="button">
+                            <i class="far fa-times" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                    </button>
+                </ul>
+            </div>
+            <div id="mobile" class="mobile-nav">
+                <a href="cart.html" 
+                   class="mobile-cart" 
+                   aria-label="Shopping cart - 3 items">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="cart-badge">3</span>
+                </a>
+                <button id="bar" 
+                        class="menu-toggle" 
+                        aria-label="Open menu" 
+                        type="button">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="page-header" class="cart-header">
+        <div class="header-content">
+            <h1>Your Shopping Cart</h1>
+            <p>Review your delicious meal selections and proceed to checkout</p>
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li aria-current="page">Cart</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <main class="cart-main">
+        <!-- Cart Items Section -->
+        <section id="cart-items" class="section-p1">
+            <div class="cart-container">
+                <div class="cart-header-row">
+                    <h2>Cart Items</h2>
+                    <span class="items-count" aria-live="polite">3 items</span>
+                </div>
+
+                <div class="cart-table-wrapper">
+                    <div class="cart-items-grid" aria-label="Shopping cart items">
+                        <!-- Cart Item 1 -->
+                        <article class="cart-item-card">
+                            <div class="item-image">
+                                <img src="Saleimages/Wed/NIGERIAN JOLLOF RICE.jfif" 
+                                     alt="Nigerian Jollof Rice - A flavorful rice dish with vegetables and spices"
+                                     loading="lazy">
+                            </div>
+                            <div class="item-details">
+                                <h3 class="item-name">Nigerian Jollof Rice</h3>
+                                <p class="item-description">A flavorful West African rice dish with tomatoes, vegetables, and aromatic spices</p>
+                                <div class="item-meta">
+                                    <span class="item-category">Main Course</span>
+                                    <span class="item-rating" aria-label="Rating: 4.5 out of 5 stars">
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                        4.5
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="item-price">
+                                <span class="current-price">₦2,850.00</span>
+                            </div>
+                            <div class="quantity-controls">
+                                <label for="qty1" class="sr-only">Quantity for Nigerian Jollof Rice</label>
+                                <button class="qty-btn qty-decrease" 
+                                        type="button" 
+                                        aria-label="Decrease quantity"
+                                        data-item="1">
+                                    <i class="fas fa-minus" aria-hidden="true"></i>
+                                </button>
+                                <input type="number" 
+                                       id="qty1" 
+                                       class="qty-input" 
+                                       value="2" 
+                                       min="1" 
+                                       max="10" 
+                                       aria-describedby="qty1-desc">
+                                <button class="qty-btn qty-increase" 
+                                        type="button" 
+                                        aria-label="Increase quantity"
+                                        data-item="1">
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <span id="qty1-desc" class="sr-only">Current quantity: 2</span>
+                            </div>
+                            <div class="item-subtotal">
+                                <span class="subtotal-amount">₦5,700.00</span>
+                            </div>
+                            <button class="remove-btn" 
+                                    type="button" 
+                                    aria-label="Remove Nigerian Jollof Rice from cart"
+                                    data-item="1">
+                                <i class="far fa-trash-alt" aria-hidden="true"></i>
+                            </button>
+                        </article>
+
+                        <!-- Cart Item 2 -->
+                        <article class="cart-item-card">
+                            <div class="item-image">
+                                <img src="Saleimages/Wed/ohaSoup.webp" 
+                                     alt="Oha Soup - Traditional Nigerian soup with oha leaves and assorted meat"
+                                     loading="lazy">
+                            </div>
+                            <div class="item-details">
+                                <h3 class="item-name">Oha Soup</h3>
+                                <p class="item-description">Traditional Nigerian soup made with oha leaves, assorted meat, and aromatic seasonings</p>
+                                <div class="item-meta">
+                                    <span class="item-category">Soup</span>
+                                    <span class="item-rating" aria-label="Rating: 4.8 out of 5 stars">
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        4.8
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="item-price">
+                                <span class="current-price">₦3,200.00</span>
+                            </div>
+                            <div class="quantity-controls">
+                                <label for="qty2" class="sr-only">Quantity for Oha Soup</label>
+                                <button class="qty-btn qty-decrease" 
+                                        type="button" 
+                                        aria-label="Decrease quantity"
+                                        data-item="2">
+                                    <i class="fas fa-minus" aria-hidden="true"></i>
+                                </button>
+                                <input type="number" 
+                                       id="qty2" 
+                                       class="qty-input" 
+                                       value="1" 
+                                       min="1" 
+                                       max="10" 
+                                       aria-describedby="qty2-desc">
+                                <button class="qty-btn qty-increase" 
+                                        type="button" 
+                                        aria-label="Increase quantity"
+                                        data-item="2">
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <span id="qty2-desc" class="sr-only">Current quantity: 1</span>
+                            </div>
+                            <div class="item-subtotal">
+                                <span class="subtotal-amount">₦3,200.00</span>
+                            </div>
+                            <button class="remove-btn" 
+                                    type="button" 
+                                    aria-label="Remove Oha Soup from cart"
+                                    data-item="2">
+                                <i class="far fa-trash-alt" aria-hidden="true"></i>
+                            </button>
+                        </article>
+
+                        <!-- Cart Item 3 -->
+                        <article class="cart-item-card">
+                            <div class="item-image">
+                                <img src="Saleimages/Wed/Moimoi.jpg" 
+                                     alt="Moimoi - Steamed bean pudding with vegetables and spices"
+                                     loading="lazy">
+                            </div>
+                            <div class="item-details">
+                                <h3 class="item-name">Moimoi</h3>
+                                <p class="item-description">Steamed bean pudding made with black-eyed peas, vegetables, and traditional spices</p>
+                                <div class="item-meta">
+                                    <span class="item-category">Side Dish</span>
+                                    <span class="item-rating" aria-label="Rating: 4.3 out of 5 stars">
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="far fa-star" aria-hidden="true"></i>
+                                        4.3
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="item-price">
+                                <span class="current-price">₦1,850.00</span>
+                            </div>
+                            <div class="quantity-controls">
+                                <label for="qty3" class="sr-only">Quantity for Moimoi</label>
+                                <button class="qty-btn qty-decrease" 
+                                        type="button" 
+                                        aria-label="Decrease quantity"
+                                        data-item="3">
+                                    <i class="fas fa-minus" aria-hidden="true"></i>
+                                </button>
+                                <input type="number" 
+                                       id="qty3" 
+                                       class="qty-input" 
+                                       value="1" 
+                                       min="1" 
+                                       max="10" 
+                                       aria-describedby="qty3-desc">
+                                <button class="qty-btn qty-increase" 
+                                        type="button" 
+                                        aria-label="Increase quantity"
+                                        data-item="3">
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <span id="qty3-desc" class="sr-only">Current quantity: 1</span>
+                            </div>
+                            <div class="item-subtotal">
+                                <span class="subtotal-amount">₦1,850.00</span>
+                            </div>
+                            <button class="remove-btn" 
+                                    type="button" 
+                                    aria-label="Remove Moimoi from cart"
+                                    data-item="3">
+                                <i class="far fa-trash-alt" aria-hidden="true"></i>
+                            </button>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Continue Shopping -->
+                <div class="continue-shopping">
+                    <a href="shop.html" class="continue-btn">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        Continue Shopping
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Summary Section -->
+        <section id="cart-summary" class="section-p1">
+            <div class="summary-container">
+                <!-- Promo Code Section -->
+                <div class="promo-section">
+                    <div class="promo-card">
+                        <h3>
+                            <i class="fas fa-tag" aria-hidden="true"></i>
+                            Apply Promo Code
+                        </h3>
+                        <form class="promo-form" aria-label="Apply promotional code">
+                            <div class="input-group">
+                                <label for="promo-code" class="sr-only">Enter promo code</label>
+                                <input type="text" 
+                                       id="promo-code" 
+                                       class="promo-input" 
+                                       placeholder="Enter your promo code" 
+                                       aria-describedby="promo-help">
+                                <button type="submit" class="apply-btn">
+                                    <i class="fas fa-check" aria-hidden="true"></i>
+                                    Apply
+                                </button>
+                            </div>
+                            <small id="promo-help" class="help-text">
+                                Enter a valid promo code to get discount on your order
+                            </small>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h3>
+                            <i class="fas fa-calculator" aria-hidden="true"></i>
+                            Order Summary
+                        </h3>
+                        
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span class="label">Subtotal (3 items):</span>
+                                <span class="value" aria-live="polite">₦10,750.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="label">Delivery Fee:</span>
+                                <span class="value delivery-free">
+                                    <span class="original-price">₦500.00</span>
+                                    <span class="free-text">FREE</span>
+                                </span>
+                            </div>
+                            <div class="summary-row discount-row hidden">
+                                <span class="label">Discount:</span>
+                                <span class="value discount-amount">-₦0.00</span>
+                            </div>
+                            <div class="summary-row tax-row">
+                                <span class="label">Tax (7.5%):</span>
+                                <span class="value">₦806.25</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row total-row">
+                                <span class="label total-label">
+                                    <strong>Total:</strong>
+                                </span>
+                                <span class="value total-amount" aria-live="polite">
+                                    <strong>₦11,556.25</strong>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Info -->
+                        <div class="delivery-info">
+                            <div class="info-item">
+                                <i class="fas fa-truck" aria-hidden="true"></i>
+                                <div>
+                                    <strong>Free Delivery</strong>
+                                    <span>On orders over ₦5,000</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                <div>
+                                    <strong>Estimated Delivery</strong>
+                                    <span>30-45 minutes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Checkout Button -->
+                        <button type="button" class="checkout-btn">
+                            <i class="fas fa-lock" aria-hidden="true"></i>
+                            Proceed to Checkout
+                        </button>
+                        
+                        <!-- Payment Methods -->
+                        <div class="payment-methods">
+                            <p class="payment-text">We accept:</p>
+                            <div class="payment-icons">
+                                <i class="fab fa-cc-visa" aria-label="Visa"></i>
+                                <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+                                <i class="fas fa-money-bill-wave" aria-label="Cash on delivery"></i>
+                                <i class="fas fa-mobile-alt" aria-label="Mobile payment"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Security Badge -->
+                        <div class="security-badge">
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                            <span>Secured checkout with SSL encryption</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+   <!-- Footer -->
+   <footer class="section-p1" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section footer-brand"> 
+                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" 
+                     class="logo" 
+                     height="50" 
+                     alt="Restaurant logo">
+                     <h2>AFROCRIB Restaurant</h2>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <div class="contact-info">
+                    <p><strong>Address:</strong> Wellington Road, Street 32 A4, Ikeja</p>
+                    <p><strong>Phone:</strong> <a href="tel:+2348105435361">+234 810 543 5361</a></p>
+                    <p><strong>Hours:</strong> 9:00 AM - 6:00 PM, Monday - Saturday</p>
+                </div>
+                <div class="social-follow">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-link">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>About</h4>
+                <nav aria-label="About links">
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <nav aria-label="Account links">
+                    <ul class="footer-links">
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                        <li><a href="#">My Wishlist</a></li>
+                        <li><a href="#">Track My Order</a></li>
+                        <li><a href="#">Help & Support</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get updates on new dishes and special offers</p>
+                <form class="newsletter-form" aria-label="Newsletter subscription">
+                    <div class="input-group">
+                        <label for="newsletter-email" class="sr-only">Email address</label>
+                        <input type="email" 
+                               id="newsletter-email" 
+                               placeholder="Enter your email" 
+                               required 
+                               aria-describedby="newsletter-help">
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <small id="newsletter-help">We respect your privacy</small>
+                </form>
+                <div class="security-info">
+                    <p><strong>Secured Payment Gateway</strong></p>
+                    <div class="payment-badges">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <span>SSL Encrypted</span>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 Delicious Meals Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+
+            </div>
+        </div>
+
+            </footer>
+
+    <!-- Screen reader announcements -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="sale.js"></script>
+</body>
+</html>
+ 

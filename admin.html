@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - AFROCRIB Kitchen</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="sale.css">
+</head>
+<body>
+    <!-- Header -->
+    <section id="header">
+        <div class="restaurant-name">
+            <div class="restaurant-letters">
+                <span class="afr-text">AFR</span>
+                <a href="index.html" aria-label="Go to homepage">
+                    <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="Logo as O">
+                </a>
+                <span class="crib-text">CRIB</span>
+            </div>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <!-- <li><a href="about.html">About</a></li> -->
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="active" href="admin.html">Admin</a></li>
+                <li id="lg-bag"><a href="cart.html" aria-label="Go to shopping cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                <li><a href="#" id="close" aria-label="Close menu"><i class="far fa-times"></i></a></li>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html" aria-label="Go to shopping cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section id="page-header" class="admin-header">
+        <div class="header-content">
+            <h2>Admin Panel</h2>
+            <p>Manage your restaurant menu and features</p>
+        </div>
+    </section>
+
+    <!-- Admin Login Section -->
+    <section id="admin-login" class="admin-section">
+        <div class="admin-container">
+            <div class="login-card">
+                <h3><i class="fas fa-user-shield"></i> Admin Access</h3>
+                <form id="admin-login-form">
+                    <div class="input-group">
+                        <label for="admin-username">Username</label>
+                        <input type="text" id="admin-username" name="username" placeholder="Enter admin username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" name="password" placeholder="Enter admin password" required>
+                    </div>
+                    <button type="submit" class="admin-btn primary">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="admin-dashboard" class="admin-section hidden">
+        <div class="admin-container">
+            <div class="dashboard-header">
+                <h2>Dashboard</h2>
+                <button id="logout-btn" class="admin-btn secondary">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+
+            <!-- Admin Navigation Tabs -->
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="recipes">
+                    <i class="fas fa-utensils"></i> Manage Recipes
+                </button>
+                <button class="tab-btn" data-tab="features">
+                    <i class="fas fa-star"></i> Manage Features
+                </button>
+                <button class="tab-btn" data-tab="analytics">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </button>
+            </div>
+
+            <!-- Recipe Management Tab -->
+            <div id="recipes-tab" class="tab-content active">
+                <div class="admin-grid">
+                    <!-- Add Recipe Form -->
+                    <div class="admin-card">
+                        <h3><i class="fas fa-plus-circle"></i> Add New Recipe</h3>
+                        <form id="add-recipe-form">
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label for="recipe-name">Recipe Name</label>
+                                    <input type="text" id="recipe-name" name="name" placeholder="e.g., Jollof Rice" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="recipe-category">Category</label>
+                                    <select id="recipe-category" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="Rice">Rice Dishes</option>
+                                        <option value="Western">Western Cuisine</option>
+                                        <option value="Noodles">Noodles</option>
+                                        <option value="Burger">Burger</option>
+                                        <option value="Cakes">Cakes</option>
+                                        <option value="Soup">Soups</option>
+                                        <option value="Pizza">Pizza</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="recipe-description">Description</label>
+                                <input type="text" id="recipe-description" name="description" placeholder="e.g., Nigerian style jollof rice with chicken and vegetables" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label for="recipe-price">Price (₦)</label>
+                                    <input type="number" id="recipe-price" name="price" placeholder="5299.25" step="0.01" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="recipe-rating">Rating (1-5)</label>
+                                    <select id="recipe-rating" name="rating" required>
+                                        <option value="5">5 Stars</option>
+                                        <option value="4">4 Stars</option>
+                                        <option value="3">3 Stars</option>
+                                        <option value="2">2 Stars</option>
+                                        <option value="1">1 Star</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="recipe-image">Recipe Image</label>
+                                <div class="image-input-options">
+                                    <div class="input-toggle">
+                                        <input type="radio" id="image-url-option" name="image-input-type" value="url" checked>
+                                        <label for="image-url-option">Image URL</label>
+                                        
+                                        <input type="radio" id="image-file-option" name="image-input-type" value="file">
+                                        <label for="image-file-option">Upload File</label>
+                                    </div>
+                                    
+                                    <div id="url-input-group" class="image-input-group active">
+                                        <input type="url" id="recipe-image-url" name="imageUrl" placeholder="https://example.com/image.jpg or Saleimages/filename.jpg">
+                                    </div>
+                                    
+                                    <div id="file-input-group" class="image-input-group">
+                                        <input type="file" id="recipe-image-file" name="imageFile" accept="image/png,image/jpeg,image/jpg,image/gif,image/webp" aria-label="Upload recipe image file">
+                                        <div class="file-info">
+                                            <small>Supported formats: PNG, JPEG, JPG, GIF, WebP (Max: 5MB)</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="image-preview" class="image-preview"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label for="add-to-menu">Add to Main Menu</label>
+                                    <input type="checkbox" id="add-to-menu" name="addToMenu" checked>
+                                </div>
+                                <div class="input-group">
+                                    <label for="add-to-features">Add to Features</label>
+                                    <input type="checkbox" id="add-to-features" name="addToFeatures">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="admin-btn primary">
+                                <i class="fas fa-plus"></i> Add Recipe
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Recipe List -->
+                    <div class="admin-card">
+                        <h3><i class="fas fa-list"></i> Current Recipes</h3>
+                        <div id="recipe-list" class="recipe-list">
+                            <!-- Dynamic recipe list will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Management Tab -->
+            <div id="features-tab" class="tab-content">
+                <div class="admin-card">
+                    <h3><i class="fas fa-star"></i> Manage Feature Categories</h3>
+                    <p>Features are the cuisine categories displayed in the feature section of your homepage.</p>
+                    
+                    <form id="add-feature-form">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="feature-name">Feature Name</label>
+                                <input type="text" id="feature-name" name="name" placeholder="e.g., Indian Cuisine" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="feature-image">Feature Image URL</label>
+                                <input type="url" id="feature-image" name="image" placeholder="Saleimages/filename.jpg" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="admin-btn primary">
+                            <i class="fas fa-plus"></i> Add Feature
+                        </button>
+                    </form>
+
+                    <div id="feature-list" class="feature-list">
+                        <!-- Dynamic feature list will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analytics-tab" class="tab-content">
+                <div class="admin-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-utensils"></i>
+                        <h3 id="total-recipes">0</h3>
+                        <p>Total Recipes</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3 id="total-features">6</h3>
+                        <p>Feature Categories</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar"></i>
+                        <h3 id="last-updated">Today</h3>
+                        <p>Last Updated</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success/Error Messages -->
+    <div id="admin-messages"></div>
+
+    <!-- Footer -->
+    <footer class="section-p1" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section footer-brand">
+                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" 
+                     class="logo" 
+                     height="50" 
+                     alt="Restaurant logo">
+                     <h2>AFROCRIB Restaurant</h2>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <div class="contact-info">
+                    <p><strong>Address:</strong> Wellington Road, Street 32 A4, Ikeja</p>
+                    <p><strong>Phone:</strong> <a href="tel:+2348105435361">+234 810 543 5361</a></p>
+                    <p><strong>Hours:</strong> 9:00 AM - 6:00 PM, Monday - Saturday</p>
+                </div>
+                <div class="social-follow">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-link">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>About</h4>
+                <nav aria-label="About links">
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <nav aria-label="Account links">
+                    <ul class="footer-links">
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                        <li><a href="#">My Wishlist</a></li>
+                        <li><a href="#">Track My Order</a></li>
+                        <li><a href="#">Help & Support</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="AppGoogle">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="40">
+                </div>
+                <p>Secured Pay Gateway</p>
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="Payment security badge - PayPal, Visa, Mastercard" height="35">
+            </div>
+                    <div class="footer-section-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 AFROCRIB Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+        </div>
+
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="sale.js"></script>
+    <script src="admin.js"></script>   
+</body>
+</html>
