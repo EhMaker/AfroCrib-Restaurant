@@ -695,6 +695,36 @@ document.addEventListener('DOMContentLoaded', () => {
 // PRODUCT DETAILS - Click to View
 // ========================================
 
+// Array of available product images for variety
+const availableImages = [
+    'Saleimages/IMG_4947.JPG',
+    'Saleimages/IMG_4948.JPG',
+    'Saleimages/IMG_4949.JPG',
+    'Saleimages/IMG_4950.JPG',
+    'Saleimages/Wed/NIGERIAN JOLLOF RICE.jpg',
+    'Saleimages/Wed/tuwo shinkafa.jpg',
+    'Saleimages/Wed/YamSauce.jpg',
+    'Saleimages/Wed/High-Quality Chicken Teriyaki Transparent png, Japanese Cuisine, Grilled Delight.jpg',
+    'Saleimages/Tues/pngegg (2).png',
+    'Saleimages/pngegg.png',
+    'Saleimages/cake1.png'
+];
+
+// Function to get 4 different images including the main one
+function getProductImages(mainImageSrc) {
+    const images = [mainImageSrc];
+    const fullPath = mainImageSrc.includes('http') ? mainImageSrc : mainImageSrc.split('/').slice(-2).join('/');
+    
+    // Filter out the main image and get 3 more random images
+    const otherImages = availableImages.filter(img => !img.includes(fullPath.split('/').pop()));
+    
+    // Shuffle and pick 3 random images
+    const shuffled = otherImages.sort(() => 0.5 - Math.random());
+    images.push(...shuffled.slice(0, 3));
+    
+    return images;
+}
+
 // Function to save product data when clicked
 function saveProductDetails(productElement) {
     try {
@@ -705,8 +735,14 @@ function saveProductDetails(productElement) {
         const stars = description.querySelectorAll('.star i.fas.fa-star').length;
         const price = description.querySelector('h4');
 
+        const mainImage = img.src;
+        const productImages = getProductImages(mainImage);
+
         const productData = {
-            mainImage: img.src,
+            mainImage: productImages[0],
+            thumbnail1: productImages[1],
+            thumbnail2: productImages[2],
+            thumbnail3: productImages[3],
             category: span ? span.textContent.trim() : 'Food',
             name: h5 ? h5.textContent.trim() : 'Delicious Meal',
             rating: stars,
@@ -768,11 +804,12 @@ if (window.location.pathname.includes('Sproduct.html')) {
                 const mainImg = document.getElementById('Main');
                 if (mainImg) mainImg.src = product.mainImage;
                 
-                // Update all small images to the same image
+                // Update small images with different images
                 const smallImages = document.querySelectorAll('.small-img');
-                smallImages.forEach(img => {
-                    img.src = product.mainImage;
-                });
+                if (smallImages.length > 0 && product.thumbnail1) smallImages[0].src = product.thumbnail1;
+                if (smallImages.length > 1 && product.thumbnail2) smallImages[1].src = product.thumbnail2;
+                if (smallImages.length > 2 && product.thumbnail3) smallImages[2].src = product.thumbnail3;
+                if (smallImages.length > 3 && product.mainImage) smallImages[3].src = product.mainImage;
                 
                 // Update product details
                 const detailsSection = document.querySelector('.single-pro-details');
