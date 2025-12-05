@@ -691,6 +691,121 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('💡 Use debugCart() to see cart contents or clearCart() to empty cart');
 });
 
+// ========================================
+// PRODUCT DETAILS - Click to View
+// ========================================
+
+// Function to save product data when clicked
+function saveProductDetails(productElement) {
+    try {
+        const img = productElement.querySelector('img');
+        const description = productElement.querySelector('.description');
+        const span = description.querySelector('span');
+        const h5 = description.querySelector('h5');
+        const stars = description.querySelectorAll('.star i.fas.fa-star').length;
+        const price = description.querySelector('h4');
+
+        const productData = {
+            mainImage: img.src,
+            category: span ? span.textContent.trim() : 'Food',
+            name: h5 ? h5.textContent.trim() : 'Delicious Meal',
+            rating: stars,
+            price: price ? price.textContent.trim() : '₦0.00',
+            timestamp: new Date().getTime()
+        };
+
+        localStorage.setItem('selectedProduct', JSON.stringify(productData));
+        console.log('📦 Product saved:', productData);
+    } catch (error) {
+        console.error('Error saving product:', error);
+    }
+}
+
+// Add click handlers to all product cards
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle all product card clicks
+    const allProducts = document.querySelectorAll('.pro');
+    allProducts.forEach(product => {
+        // Skip if it already has an onclick with window.location
+        if (product.getAttribute('onclick')) {
+            // Update existing onclick to save data first
+            const originalOnclick = product.getAttribute('onclick');
+            product.onclick = function(e) {
+                // Don't trigger if clicking the cart button
+                if (e.target.closest('.cart')) return;
+                
+                saveProductDetails(this);
+                eval(originalOnclick);
+            };
+        } else {
+            // Add click handler for products without onclick
+            product.style.cursor = 'pointer';
+            product.addEventListener('click', function(e) {
+                // Don't navigate if clicking the cart button
+                if (e.target.closest('.cart')) return;
+                
+                saveProductDetails(this);
+                window.location.href = 'Sproduct.html';
+            });
+        }
+    });
+});
+
+// ========================================
+// SPRODUCT PAGE - Load Product Details
+// ========================================
+
+// Load product details on Sproduct.html page
+if (window.location.pathname.includes('Sproduct.html')) {
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedProduct = localStorage.getItem('selectedProduct');
+        
+        if (savedProduct) {
+            try {
+                const product = JSON.parse(savedProduct);
+                
+                // Update main image
+                const mainImg = document.getElementById('Main');
+                if (mainImg) mainImg.src = product.mainImage;
+                
+                // Update all small images to the same image
+                const smallImages = document.querySelectorAll('.small-img');
+                smallImages.forEach(img => {
+                    img.src = product.mainImage;
+                });
+                
+                // Update product details
+                const detailsSection = document.querySelector('.single-pro-details');
+                if (detailsSection) {
+                    // Update breadcrumb
+                    const breadcrumb = detailsSection.querySelector('h6');
+                    if (breadcrumb) breadcrumb.textContent = `Home / ${product.category}`;
+                    
+                    // Update product name
+                    const nameHeading = detailsSection.querySelector('h4');
+                    if (nameHeading) nameHeading.textContent = product.name;
+                    
+                    // Update price
+                    const priceHeading = detailsSection.querySelector('h2');
+                    if (priceHeading) priceHeading.textContent = product.price;
+                    
+                    // Update description
+                    const descSpan = detailsSection.querySelector('span');
+                    if (descSpan) {
+                        descSpan.textContent = `${product.name} is a delicious ${product.category.toLowerCase()} dish from our menu. Made with fresh ingredients and traditional recipes, this meal is perfect for any occasion. Enjoy the authentic taste and quality that AFROCRIB Restaurant is known for.`;
+                    }
+                }
+                
+                console.log('✅ Product details loaded successfully');
+            } catch (error) {
+                console.error('Error loading product details:', error);
+            }
+        } else {
+            console.log('ℹ️ No saved product found, showing default product');
+        }
+    });
+}
+
 //image gallery
 var MainImg = document.getElementById("Main");
 var smallImg = document.getElementsByClassName("small-img");
