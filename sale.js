@@ -695,58 +695,59 @@ document.addEventListener('DOMContentLoaded', () => {
 // PRODUCT DETAILS - Click to View
 // ========================================
 
-// Array of available product images for variety
-const availableImages = [
-    'Saleimages/IMG_4947.JPG',
-    'Saleimages/IMG_4948.JPG',
-    'Saleimages/IMG_4949.JPG',
-    'Saleimages/IMG_4950.JPG',
-    'Saleimages/Wed/NIGERIAN JOLLOF RICE.jpg',
-    'Saleimages/Wed/tuwo shinkafa.jpg',
-    'Saleimages/Wed/YamSauce.jpg',
-    'Saleimages/Wed/High-Quality Chicken Teriyaki Transparent png, Japanese Cuisine, Grilled Delight.jpg',
-    'Saleimages/Tues/pngegg (2).png',
-    'Saleimages/pngegg.png',
-    'Saleimages/cake1.png'
-];
+// Store all products data for thumbnail navigation
+let allProductsData = [];
 
-// Function to get 4 different images including the main one
-function getProductImages(mainImageSrc) {
-    const images = [mainImageSrc];
-    const fullPath = mainImageSrc.includes('http') ? mainImageSrc : mainImageSrc.split('/').slice(-2).join('/');
+// Function to extract product data from element
+function extractProductData(productElement) {
+    const img = productElement.querySelector('img');
+    const description = productElement.querySelector('.description');
+    const span = description.querySelector('span');
+    const h5 = description.querySelector('h5');
+    const stars = description.querySelectorAll('.star i.fas.fa-star').length;
+    const price = description.querySelector('h4');
+
+    return {
+        mainImage: img.src,
+        category: span ? span.textContent.trim() : 'Food',
+        name: h5 ? h5.textContent.trim() : 'Delicious Meal',
+        rating: stars,
+        price: price ? price.textContent.trim() : '₦0.00',
+        description: `${h5 ? h5.textContent.trim() : 'This delicious meal'} is a wonderful ${span ? span.textContent.trim().toLowerCase() : 'food'} dish from our menu. Made with fresh ingredients and traditional recipes, this meal is perfect for any occasion. Enjoy the authentic taste and quality that AFROCRIB Restaurant is known for.`
+    };
+}
+
+// Function to collect all products and select related ones
+function getRelatedProducts(mainProduct, allProducts) {
+    // Filter to get 3 other different products
+    const otherProducts = allProducts.filter(p => p.mainImage !== mainProduct.mainImage);
     
-    // Filter out the main image and get 3 more random images
-    const otherImages = availableImages.filter(img => !img.includes(fullPath.split('/').pop()));
+    // Shuffle and pick 3 random products
+    const shuffled = otherProducts.sort(() => 0.5 - Math.random());
+    const related = shuffled.slice(0, 3);
     
-    // Shuffle and pick 3 random images
-    const shuffled = otherImages.sort(() => 0.5 - Math.random());
-    images.push(...shuffled.slice(0, 3));
-    
-    return images;
+    return [mainProduct, ...related];
 }
 
 // Function to save product data when clicked
 function saveProductDetails(productElement) {
     try {
-        const img = productElement.querySelector('img');
-        const description = productElement.querySelector('.description');
-        const span = description.querySelector('span');
-        const h5 = description.querySelector('h5');
-        const stars = description.querySelectorAll('.star i.fas.fa-star').length;
-        const price = description.querySelector('h4');
-
-        const mainImage = img.src;
-        const productImages = getProductImages(mainImage);
+        const mainProduct = extractProductData(productElement);
+        
+        // Get all products on the page
+        const allProductElements = document.querySelectorAll('.pro');
+        allProductsData = Array.from(allProductElements).map(el => extractProductData(el));
+        
+        // Get 4 products (main + 3 related)
+        const selectedProducts = getRelatedProducts(mainProduct, allProductsData);
 
         const productData = {
-            mainImage: productImages[0],
-            thumbnail1: productImages[1],
-            thumbnail2: productImages[2],
-            thumbnail3: productImages[3],
-            category: span ? span.textContent.trim() : 'Food',
-            name: h5 ? h5.textContent.trim() : 'Delicious Meal',
-            rating: stars,
-            price: price ? price.textContent.trim() : '₦0.00',
+            mainProduct: selectedProducts[0],
+            relatedProducts: [
+                selectedProducts[1] || selectedProducts[0],
+                selectedProducts[2] || selectedProducts[0],
+                selectedProducts[3] || selectedProducts[0]
+            ],
             timestamp: new Date().getTime()
         };
 
@@ -791,6 +792,35 @@ document.addEventListener('DOMContentLoaded', function() {
 // SPRODUCT PAGE - Load Product Details
 // ========================================
 
+// Function to display product details
+function displayProductDetails(product) {
+    // Update main image
+    const mainImg = document.getElementById('Main');
+    if (mainImg) mainImg.src = product.mainImage;
+    
+    // Update product details section
+    const detailsSection = document.querySelector('.single-pro-details');
+    if (detailsSection) {
+        // Update breadcrumb
+        const breadcrumb = detailsSection.querySelector('h6');
+        if (breadcrumb) breadcrumb.textContent = `Home / ${product.category}`;
+        
+        // Update product name
+        const nameHeading = detailsSection.querySelector('h4');
+        if (nameHeading) nameHeading.textContent = product.name;
+        
+        // Update price
+        const priceHeading = detailsSection.querySelector('h2');
+        if (priceHeading) priceHeading.textContent = product.price;
+        
+        // Update description
+        const descSpan = detailsSection.querySelector('span');
+        if (descSpan) {
+            descSpan.textContent = product.description;
+        }
+    }
+}
+
 // Load product details on Sproduct.html page
 if (window.location.pathname.includes('Sproduct.html')) {
     document.addEventListener('DOMContentLoaded', function() {
@@ -798,39 +828,45 @@ if (window.location.pathname.includes('Sproduct.html')) {
         
         if (savedProduct) {
             try {
-                const product = JSON.parse(savedProduct);
+                const productData = JSON.parse(savedProduct);
                 
-                // Update main image
-                const mainImg = document.getElementById('Main');
-                if (mainImg) mainImg.src = product.mainImage;
+                // Display main product initially
+                displayProductDetails(productData.mainProduct);
                 
-                // Update small images with different images
+                // Update small images with related products
                 const smallImages = document.querySelectorAll('.small-img');
-                if (smallImages.length > 0 && product.thumbnail1) smallImages[0].src = product.thumbnail1;
-                if (smallImages.length > 1 && product.thumbnail2) smallImages[1].src = product.thumbnail2;
-                if (smallImages.length > 2 && product.thumbnail3) smallImages[2].src = product.thumbnail3;
-                if (smallImages.length > 3 && product.mainImage) smallImages[3].src = product.mainImage;
+                const relatedProducts = productData.relatedProducts || [];
                 
-                // Update product details
-                const detailsSection = document.querySelector('.single-pro-details');
-                if (detailsSection) {
-                    // Update breadcrumb
-                    const breadcrumb = detailsSection.querySelector('h6');
-                    if (breadcrumb) breadcrumb.textContent = `Home / ${product.category}`;
-                    
-                    // Update product name
-                    const nameHeading = detailsSection.querySelector('h4');
-                    if (nameHeading) nameHeading.textContent = product.name;
-                    
-                    // Update price
-                    const priceHeading = detailsSection.querySelector('h2');
-                    if (priceHeading) priceHeading.textContent = product.price;
-                    
-                    // Update description
-                    const descSpan = detailsSection.querySelector('span');
-                    if (descSpan) {
-                        descSpan.textContent = `${product.name} is a delicious ${product.category.toLowerCase()} dish from our menu. Made with fresh ingredients and traditional recipes, this meal is perfect for any occasion. Enjoy the authentic taste and quality that AFROCRIB Restaurant is known for.`;
+                // Set images and attach click handlers
+                smallImages.forEach((img, index) => {
+                    if (relatedProducts[index]) {
+                        img.src = relatedProducts[index].mainImage;
+                        img.style.cursor = 'pointer';
+                        
+                        // Click handler to update details AND main image
+                        img.onclick = function() {
+                            // Update main image
+                            const mainImg = document.getElementById('Main');
+                            if (mainImg) mainImg.src = this.src;
+                            
+                            // Update product details
+                            displayProductDetails(relatedProducts[index]);
+                            
+                            console.log('🔄 Switched to:', relatedProducts[index].name);
+                        };
                     }
+                });
+                
+                // Also add click to show main product when last thumbnail is clicked
+                if (smallImages.length > 3) {
+                    const lastThumb = smallImages[3];
+                    lastThumb.src = productData.mainProduct.mainImage;
+                    lastThumb.onclick = function() {
+                        const mainImg = document.getElementById('Main');
+                        if (mainImg) mainImg.src = this.src;
+                        displayProductDetails(productData.mainProduct);
+                        console.log('🔄 Back to main product:', productData.mainProduct.name);
+                    };
                 }
                 
                 console.log('✅ Product details loaded successfully');
@@ -843,7 +879,7 @@ if (window.location.pathname.includes('Sproduct.html')) {
     });
 }
 
-//image gallery
+//image gallery - fallback for non-dynamic images
 var MainImg = document.getElementById("Main");
 var smallImg = document.getElementsByClassName("small-img");
 
