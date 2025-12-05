@@ -364,6 +364,18 @@
                             </div>
                         </div>
 
+                        <!-- Login/Account Section -->
+                        <div class="cart-account-section" id="cart-account-section">
+                            <div class="account-status" id="account-status">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Sign in for faster checkout</span>
+                            </div>
+                            <button type="button" class="login-btn" id="cart-login-btn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Login / Register
+                            </button>
+                        </div>
+
                         <!-- Checkout Button -->
                         <button type="button" class="checkout-btn">
                             <i class="fas fa-lock" aria-hidden="true"></i>
@@ -673,9 +685,95 @@
     <!-- Screen reader announcements -->
     <div aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
 
+    <!-- Login/Register Modal -->
+    <div id="cart-login-modal" class="auth-modal" role="dialog" aria-labelledby="auth-modal-title" aria-hidden="true">
+        <div class="auth-modal-overlay"></div>
+        <div class="auth-modal-content">
+            <button type="button" class="auth-close-btn" aria-label="Close login">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="auth-modal-header">
+                <i class="fas fa-user-circle"></i>
+                <h2 id="auth-modal-title">Welcome Back!</h2>
+                <p>Login or register to continue with your order</p>
+            </div>
+
+            <div class="auth-modal-body">
+                <!-- Email Input Step -->
+                <div id="email-step" class="auth-step active">
+                    <form id="auth-email-form">
+                        <div class="form-group">
+                            <label for="auth-email">Email Address</label>
+                            <input type="email" 
+                                   id="auth-email" 
+                                   class="form-control" 
+                                   placeholder="Enter your email"
+                                   required>
+                        </div>
+                        <button type="submit" class="auth-btn">
+                            <i class="fas fa-envelope"></i>
+                            Continue with Email
+                        </button>
+                    </form>
+                    <div class="auth-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>We'll send you a verification code</span>
+                    </div>
+                </div>
+
+                <!-- OTP Verification Step -->
+                <div id="otp-step" class="auth-step">
+                    <form id="auth-otp-form">
+                        <div class="otp-info">
+                            <i class="fas fa-envelope-open"></i>
+                            <p>We've sent a 6-digit code to</p>
+                            <strong id="verify-email-display"></strong>
+                        </div>
+                        <div class="form-group">
+                            <label for="auth-otp">Verification Code</label>
+                            <input type="text" 
+                                   id="auth-otp" 
+                                   class="form-control otp-input" 
+                                   placeholder="Enter 6-digit code"
+                                   maxlength="6"
+                                   pattern="[0-9]{6}"
+                                   required>
+                        </div>
+                        <button type="submit" class="auth-btn">
+                            <i class="fas fa-check"></i>
+                            Verify & Continue
+                        </button>
+                        <button type="button" class="auth-btn-secondary" id="resend-code-btn">
+                            <i class="fas fa-redo"></i>
+                            Resend Code
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Success Step -->
+                <div id="success-step" class="auth-step">
+                    <div class="auth-success">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Successfully Logged In!</h3>
+                        <p id="user-email-display"></p>
+                        <button type="button" class="auth-btn" id="continue-shopping-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            Continue Shopping
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-message" id="auth-message"></div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth-simple.js"></script>
     <script src="sale.js"></script>
     <script src="checkout.js"></script>
+    <script src="cart-auth.js"></script>
 </body>
 </html>
  
