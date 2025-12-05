@@ -571,8 +571,8 @@ class ShoppingCart {
     // Extract product data from single product page
     extractSingleProductData() {
         // For single product page (Sproduct.html)
-        const mainImg = document.querySelector('#Main') || document.querySelector('#pro-details img');
-        const productDetails = document.querySelector('#pro-details div');
+        const mainImg = document.querySelector('#Main');
+        const productDetails = document.querySelector('.single-pro-details');
         
         if (!productDetails) return null;
 
@@ -580,12 +580,14 @@ class ShoppingCart {
         const priceH2 = productDetails.querySelector('h2');
         const descriptionSpan = productDetails.querySelector('span');
         const quantityInput = document.querySelector('#quantity-input');
+        const portionSelect = document.querySelector('#portion-select');
         
         // Extract product info
-        const name = nameH4 ? nameH4.textContent.trim() : 'Rice and Stew';
-        const price = priceH2 ? priceH2.textContent.trim() : '₦5299.25';
+        const name = nameH4 ? nameH4.textContent.trim() : 'Delicious Meal';
+        const price = priceH2 ? priceH2.textContent.trim() : '₦0.00';
         const description = descriptionSpan ? descriptionSpan.textContent.trim().substring(0, 100) + '...' : name;
         const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+        const portion = portionSelect ? portionSelect.value : '';
         
         const id = `${name.toLowerCase().replace(/\s+/g, '_')}_${price.replace(/[^\d]/g, '')}`;
 
@@ -595,7 +597,8 @@ class ShoppingCart {
             price: price,
             image: mainImg ? mainImg.src : '',
             description: description,
-            quantity: quantity
+            quantity: quantity,
+            portion: portion
         };
     }
 
@@ -630,7 +633,7 @@ class ShoppingCart {
         });
 
         // Add to cart button for single product page
-        const addToCartButton = document.querySelector('button.normal');
+        const addToCartButton = document.querySelector('.single-pro-details button.normal');
         if (addToCartButton && addToCartButton.textContent.includes('Add To Cart')) {
             addToCartButton.addEventListener('click', (e) => {
                 e.preventDefault();
