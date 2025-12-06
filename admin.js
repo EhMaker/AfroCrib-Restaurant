@@ -150,8 +150,10 @@ class AdminPanel {
     handleLogout() {
         sessionStorage.removeItem('adminLoggedIn');
         this.currentUser = null;
-        this.checkAuthStatus();
         this.showMessage('Logged out successfully.', 'info');
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 500);
     }
 
     switchTab(tabName) {

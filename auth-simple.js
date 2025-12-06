@@ -108,7 +108,7 @@ async function logout() {
     }
     
     console.log('✅ Logged out successfully');
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 }
 
 // ========================================

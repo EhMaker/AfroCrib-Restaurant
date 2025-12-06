@@ -313,6 +313,11 @@ class CartAuth {
             }
 
             this.showMessage('Logged out successfully', 'success');
+            
+            // Redirect to home page after brief delay
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
 
         } catch (error) {
             console.error('Logout error:', error);
