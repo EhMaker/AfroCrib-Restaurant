@@ -100,9 +100,9 @@ class DashboardAuth {
                     </div>
 
                     <div class="auth-modal-body">
-                        <!-- Email Input Step -->
-                        <div id="dashboard-email-step" class="auth-step active">
-                            <form id="dashboard-auth-email-form">
+                        <!-- Email & Password Login Step -->
+                        <div id="dashboard-login-step" class="auth-step active">
+                            <form id="dashboard-auth-login-form">
                                 <div class="form-group">
                                     <label for="dashboard-auth-email">Email Address</label>
                                     <input type="email" 
@@ -111,20 +111,71 @@ class DashboardAuth {
                                            placeholder="Enter your email"
                                            required>
                                 </div>
+                                <div class="form-group">
+                                    <label for="dashboard-auth-password">Password</label>
+                                    <div class="password-input-wrapper">
+                                        <input type="password" 
+                                               id="dashboard-auth-password" 
+                                               class="form-control" 
+                                               placeholder="Enter your password"
+                                               required>
+                                        <button type="button" class="password-toggle" id="toggle-password">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
                                 <button type="submit" class="auth-btn">
-                                    <i class="fas fa-envelope"></i>
-                                    Continue with Email
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
                                 </button>
+                                ${type === 'user' ? `
+                                <button type="button" class="auth-btn-secondary" id="switch-to-register">
+                                    <i class="fas fa-user-plus"></i>
+                                    New User? Register Here
+                                </button>
+                                ` : ''}
                             </form>
-                            ${type === 'user' ? `
-                            <div class="auth-note">
-                                <i class="fas fa-info-circle"></i>
-                                <span>New user? We'll automatically register you!</span>
-                            </div>
-                            ` : ''}
                         </div>
 
-                        <!-- OTP Verification Step -->
+                        <!-- Registration Step (Users Only) -->
+                        ${type === 'user' ? `
+                        <div id="dashboard-register-step" class="auth-step">
+                            <form id="dashboard-auth-register-form">
+                                <div class="form-group">
+                                    <label for="dashboard-register-email">Email Address</label>
+                                    <input type="email" 
+                                           id="dashboard-register-email" 
+                                           class="form-control" 
+                                           placeholder="Enter your email"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dashboard-register-password">Password</label>
+                                    <div class="password-input-wrapper">
+                                        <input type="password" 
+                                               id="dashboard-register-password" 
+                                               class="form-control" 
+                                               placeholder="Create a password (min 6 characters)"
+                                               minlength="6"
+                                               required>
+                                        <button type="button" class="password-toggle" id="toggle-register-password">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="submit" class="auth-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Send Verification Code
+                                </button>
+                                <button type="button" class="auth-btn-secondary" id="switch-to-login">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Already have an account? Login
+                                </button>
+                            </form>
+                        </div>
+                        ` : ''}
+
+                        <!-- OTP Verification Step (Registration Only) -->
                         <div id="dashboard-otp-step" class="auth-step">
                             <form id="dashboard-auth-otp-form">
                                 <div class="otp-info">
@@ -144,7 +195,7 @@ class DashboardAuth {
                                 </div>
                                 <button type="submit" class="auth-btn">
                                     <i class="fas fa-check"></i>
-                                    Verify & Login
+                                    Verify & Complete Registration
                                 </button>
                                 <button type="button" class="auth-btn-secondary" id="dashboard-resend-code-btn">
                                     <i class="fas fa-redo"></i>
@@ -177,12 +228,39 @@ class DashboardAuth {
         closeBtn.addEventListener('click', () => this.closeModal(modal));
         overlay.addEventListener('click', () => this.closeModal(modal));
 
-        // Email form
-        const emailForm = modal.querySelector('#dashboard-auth-email-form');
-        emailForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleEmailSubmit(modal, type);
-        });
+        // Login form
+        const loginForm = modal.querySelector('#dashboard-auth-login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleLoginSubmit(modal, type);
+            });
+        }
+
+        // Register form (for users only)
+        const registerForm = modal.querySelector('#dashboard-auth-register-form');
+        if (registerForm) {
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleRegisterSubmit(modal);
+            });
+        }
+
+        // Switch to register
+        const switchToRegister = modal.querySelector('#switch-to-register');
+        if (switchToRegister) {
+            switchToRegister.addEventListener('click', () => {
+                this.showStep(modal, 'dashboard-register-step');
+            });
+        }
+
+        // Switch to login
+        const switchToLogin = modal.querySelector('#switch-to-login');
+        if (switchToLogin) {
+            switchToLogin.addEventListener('click', () => {
+                this.showStep(modal, 'dashboard-login-step');
+            });
+        }
 
         // OTP form
         const otpForm = modal.querySelector('#dashboard-auth-otp-form');
@@ -195,6 +273,42 @@ class DashboardAuth {
         const resendBtn = modal.querySelector('#dashboard-resend-code-btn');
         resendBtn.addEventListener('click', () => this.resendCode(modal));
 
+        // Password toggle for login
+        const togglePassword = modal.querySelector('#toggle-password');
+        if (togglePassword) {
+            togglePassword.addEventListener('click', () => {
+                const passwordInput = modal.querySelector('#dashboard-auth-password');
+                const icon = togglePassword.querySelector('i');
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+
+        // Password toggle for register
+        const toggleRegisterPassword = modal.querySelector('#toggle-register-password');
+        if (toggleRegisterPassword) {
+            toggleRegisterPassword.addEventListener('click', () => {
+                const passwordInput = modal.querySelector('#dashboard-register-password');
+                const icon = toggleRegisterPassword.querySelector('i');
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+
         // Auto-format OTP
         const otpInput = modal.querySelector('#dashboard-auth-otp');
         otpInput.addEventListener('input', (e) => {
@@ -202,33 +316,87 @@ class DashboardAuth {
         });
     }
 
-    async handleEmailSubmit(modal, type) {
+    async handleLoginSubmit(modal, type) {
         const emailInput = modal.querySelector('#dashboard-auth-email');
+        const passwordInput = modal.querySelector('#dashboard-auth-password');
         const email = emailInput.value.trim();
+        const password = passwordInput.value;
 
         if (!this.validateEmail(email)) {
             this.showMessage(modal, 'Please enter a valid email address', 'error');
             return;
         }
 
-        const submitBtn = modal.querySelector('#dashboard-auth-email-form button[type="submit"]');
+        if (!password || password.length < 6) {
+            this.showMessage(modal, 'Password must be at least 6 characters', 'error');
+            return;
+        }
+
+        const submitBtn = modal.querySelector('#dashboard-auth-login-form button[type="submit"]');
         this.setButtonLoading(submitBtn, true);
 
         try {
             if (!supabase) throw new Error('Supabase not initialized');
 
-            // Send OTP (creates user if doesn't exist for user type only)
-            const { data, error } = await supabase.auth.signInWithOtp({
+            // Login with email and password
+            const { data, error } = await supabase.auth.signInWithPassword({
                 email: email,
+                password: password
+            });
+
+            if (error) throw error;
+
+            // Successful login - redirect based on type
+            if (type === 'user') {
+                window.location.href = 'dashboard.html';
+            } else {
+                window.location.href = 'admin.html';
+            }
+
+        } catch (error) {
+            console.error('Login error:', error);
+            this.showMessage(modal, error.message || 'Invalid email or password', 'error');
+        } finally {
+            this.setButtonLoading(submitBtn, false);
+        }
+    }
+
+    async handleRegisterSubmit(modal) {
+        const emailInput = modal.querySelector('#dashboard-register-email');
+        const passwordInput = modal.querySelector('#dashboard-register-password');
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        if (!this.validateEmail(email)) {
+            this.showMessage(modal, 'Please enter a valid email address', 'error');
+            return;
+        }
+
+        if (!password || password.length < 6) {
+            this.showMessage(modal, 'Password must be at least 6 characters', 'error');
+            return;
+        }
+
+        const submitBtn = modal.querySelector('#dashboard-auth-register-form button[type="submit"]');
+        this.setButtonLoading(submitBtn, true);
+
+        try {
+            if (!supabase) throw new Error('Supabase not initialized');
+
+            // Register user and send OTP for email verification
+            const { data, error } = await supabase.auth.signUp({
+                email: email,
+                password: password,
                 options: {
-                    shouldCreateUser: type === 'user' // Only allow registration for users, not admins
+                    emailRedirectTo: window.location.origin + '/dashboard.html'
                 }
             });
 
             if (error) throw error;
 
             this.currentEmail = email;
-            this.currentType = type;
+            this.currentPassword = password;
+            this.currentType = 'user';
             
             // Show OTP step
             const emailDisplay = modal.querySelector('#dashboard-verify-email-display');
@@ -244,8 +412,8 @@ class DashboardAuth {
             }, 100);
 
         } catch (error) {
-            console.error('Email submit error:', error);
-            this.showMessage(modal, error.message || 'Failed to send verification code', 'error');
+            console.error('Registration error:', error);
+            this.showMessage(modal, error.message || 'Failed to register. Email may already be in use.', 'error');
         } finally {
             this.setButtonLoading(submitBtn, false);
         }
@@ -274,12 +442,8 @@ class DashboardAuth {
 
             if (error) throw error;
 
-            // Successful login - redirect based on type
-            if (type === 'user') {
-                window.location.href = 'dashboard.html';
-            } else {
-                window.location.href = 'admin.html';
-            }
+            // Successful registration verification - redirect to dashboard
+            window.location.href = 'dashboard.html';
 
         } catch (error) {
             console.error('OTP verification error:', error);
@@ -290,9 +454,9 @@ class DashboardAuth {
     }
 
     async resendCode(modal) {
-        if (!this.currentEmail) {
+        if (!this.currentEmail || !this.currentPassword) {
             this.showMessage(modal, 'Please start over', 'error');
-            this.showStep(modal, 'dashboard-email-step');
+            this.showStep(modal, 'dashboard-register-step');
             return;
         }
 
@@ -302,10 +466,12 @@ class DashboardAuth {
         try {
             if (!supabase) throw new Error('Supabase not initialized');
 
-            const { data, error } = await supabase.auth.signInWithOtp({
+            // Resend OTP for registration
+            const { data, error } = await supabase.auth.signUp({
                 email: this.currentEmail,
+                password: this.currentPassword,
                 options: {
-                    shouldCreateUser: this.currentType === 'user'
+                    emailRedirectTo: window.location.origin + '/dashboard.html'
                 }
             });
 
