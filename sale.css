@@ -6036,6 +6036,98 @@ button.white:hover {
     transition: transform var(--transition-normal);
 }
 
+/* ========================================
+   DASHBOARD DROPDOWN NAVIGATION
+   ======================================== */
+
+.dropdown-nav {
+    position: relative;
+}
+
+.dropdown-nav > a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-nav > a i.fa-chevron-down {
+    font-size: 0.75rem;
+    transition: transform var(--transition-normal);
+}
+
+.dropdown-nav:hover > a i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-normal);
+    z-index: 1000;
+    margin-top: 0.5rem;
+}
+
+.dropdown-nav:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    font-size: 0.95rem;
+}
+
+.dropdown-item:hover {
+    background: var(--surface-secondary);
+    color: var(--primary-color);
+}
+
+.dropdown-item i {
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Mobile dropdown */
+@media (max-width: 799px) {
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: var(--surface-secondary);
+        margin: 0.5rem 0;
+        border-radius: 0;
+        display: none;
+    }
+
+    .dropdown-nav:hover .dropdown-menu,
+    .dropdown-nav.active .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-item {
+        padding: 0.75rem 1.5rem;
+    }
+}
+
 .view-all-btn:hover i {
     color: white;
     transform: translateX(5px);

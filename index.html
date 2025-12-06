@@ -25,7 +25,17 @@
                     <!-- <li><a href="blog.html">Blog</a></li> -->
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="admin.html">Admin</a></li>
+                    <li class="dropdown-nav">
+                        <a href="#" id="dashboard-link">Dashboard <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item" id="user-login-link">
+                                <i class="fas fa-user"></i> User Login
+                            </a>
+                            <a href="#" class="dropdown-item" id="admin-login-link">
+                                <i class="fas fa-user-shield"></i> Admin Login
+                            </a>
+                        </div>
+                    </li>
                     <li id="lg-bag"><a href="cart.html" aria-label="Go to shopping cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                     <li><a href="#" id="close" aria-label="Close menu"><i class="far fa-times"></i></a></li>
                 </ul>
@@ -530,7 +540,8 @@
       });
    </script>
    <script src="sale.js"></script>
-   <script src="admin.js"></script>   
+   <script src="admin.js"></script>
+   <script src="dashboard-auth.js"></script>
 
 </body>
 </html>

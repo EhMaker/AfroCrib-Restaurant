@@ -282,6 +282,28 @@
             }
         }
 
+        // Check authentication on page load
+        async function checkAuth() {
+            try {
+                const { data: { session }, error } = await supabase.auth.getSession();
+                
+                if (error) throw error;
+
+                if (!session) {
+                    // Not logged in, redirect to home
+                    alert('Please login to access the dashboard');
+                    window.location.href = 'index.html';
+                    return;
+                }
+
+                // User is logged in, load their data
+                loadUserData();
+            } catch (error) {
+                console.error('Auth check error:', error);
+                window.location.href = 'index.html';
+            }
+        }
+
         // Handle logout
         document.getElementById('logoutBtn').addEventListener('click', async () => {
             if (confirm('Are you sure you want to logout?')) {
@@ -289,8 +311,8 @@
             }
         });
 
-        // Load user data when page loads
-        loadUserData();
+        // Check auth when page loads
+        checkAuth();
     </script>
 </body>
 </html>
