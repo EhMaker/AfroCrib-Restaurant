@@ -538,6 +538,24 @@
             document.getElementById('join-btn').click();
          }
       });
+
+      // Toggle dashboard dropdown on click
+      const dashboardLink = document.getElementById('dashboard-link');
+      const dropdownNav = document.querySelector('.dropdown-nav');
+      
+      if (dashboardLink && dropdownNav) {
+         dashboardLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdownNav.classList.toggle('active');
+         });
+         
+         // Close dropdown when clicking outside
+         document.addEventListener('click', function(e) {
+            if (!dropdownNav.contains(e.target)) {
+               dropdownNav.classList.remove('active');
+            }
+         });
+      }
    </script>
    <script src="sale.js"></script>
    <script src="admin.js"></script>

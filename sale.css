@@ -2043,6 +2043,7 @@ button.white:hover {
     
     #product1 .pro .description h5 {
         font-size: 13px;
+        align-items: center;
     }
     
     #product1 .pro .description span {
@@ -6036,98 +6037,6 @@ button.white:hover {
     transition: transform var(--transition-normal);
 }
 
-/* ========================================
-   DASHBOARD DROPDOWN NAVIGATION
-   ======================================== */
-
-.dropdown-nav {
-    position: relative;
-}
-
-.dropdown-nav > a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.dropdown-nav > a i.fa-chevron-down {
-    font-size: 0.75rem;
-    transition: transform var(--transition-normal);
-}
-
-.dropdown-nav:hover > a i.fa-chevron-down {
-    transform: rotate(180deg);
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    min-width: 200px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    border-radius: var(--radius-md);
-    padding: 0.5rem 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all var(--transition-normal);
-    z-index: 1000;
-    margin-top: 0.5rem;
-}
-
-.dropdown-nav:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.875rem 1.25rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: all var(--transition-fast);
-    font-size: 0.95rem;
-}
-
-.dropdown-item:hover {
-    background: var(--surface-secondary);
-    color: var(--primary-color);
-}
-
-.dropdown-item i {
-    font-size: 1rem;
-    width: 20px;
-    text-align: center;
-}
-
-/* Mobile dropdown */
-@media (max-width: 799px) {
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        background: var(--surface-secondary);
-        margin: 0.5rem 0;
-        border-radius: 0;
-        display: none;
-    }
-
-    .dropdown-nav:hover .dropdown-menu,
-    .dropdown-nav.active .dropdown-menu {
-        display: block;
-    }
-
-    .dropdown-item {
-        padding: 0.75rem 1.5rem;
-    }
-}
-
 .view-all-btn:hover i {
     color: white;
     transform: translateX(5px);
@@ -6145,46 +6054,96 @@ button.white:hover {
 }
 
 /* ========================================
-   PASSWORD INPUT WRAPPER & TOGGLE
+   DASHBOARD DROPDOWN NAVIGATION
    ======================================== */
 
-.password-input-wrapper {
+.dropdown-nav {
     position: relative;
+}
+
+.dropdown-nav > a {
     display: flex;
     align-items: center;
-}
-
-.password-input-wrapper input {
-    padding-right: 2.75rem;
-    width: 100%;
-}
-
-.password-toggle {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
+    gap: 0.5rem;
     cursor: pointer;
-    padding: 0.5rem;
+}
+
+.dropdown-nav > a i.fa-chevron-down {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-nav.active > a i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown-nav.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: color 0.2s ease;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+    color: #2557eb;
+}
+
+.dropdown-item i {
     font-size: 1rem;
+    width: 20px;
+    text-align: center;
 }
 
-.password-toggle:hover {
-    color: var(--text-primary);
-}
+/* Mobile dropdown */
+@media (max-width: 799px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.05);
+        margin: 0.5rem 0;
+        border-radius: 0;
+        display: none;
+    }
 
-.password-toggle:focus {
-    outline: none;
-    color: var(--brand-primary);
-}
+    .dropdown-nav.active .dropdown-menu {
+        display: block;
+    }
 
-.password-toggle i {
-    pointer-events: none;
+    .dropdown-item {
+        padding: 0.75rem 1.5rem;
+        color: #fff;
+    }
+
+    .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
 }
