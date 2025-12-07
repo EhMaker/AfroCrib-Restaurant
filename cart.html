@@ -26,6 +26,17 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li class="dropdown-nav">
+                        <a href="#" id="dashboard-link">Dashboard <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item" id="user-login-link">
+                                <i class="fas fa-user"></i> User Login
+                            </a>
+                            <a href="#" class="dropdown-item" id="admin-login-link">
+                                <i class="fas fa-user-shield"></i> Admin Login
+                            </a>
+                        </div>
+                    </li>
                     <li id="lg-bag">
                         <a class="active cart-icon" 
                            href="cart.html" 
@@ -768,11 +779,30 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>       
     <script src="auth-simple.js"></script>
     <script src="sale.js"></script>
     <script src="checkout.js"></script>
     <script src="cart-auth.js"></script>
+    <script src="dashboard-auth.js"></script>
+    <script>
+      // Toggle dashboard dropdown on click
+      const dashboardLink = document.getElementById('dashboard-link');
+      const dropdownNav = document.querySelector('.dropdown-nav');
+      
+      if (dashboardLink && dropdownNav) {
+         dashboardLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdownNav.classList.toggle('active');
+         });
+         
+         // Close dropdown when clicking outside
+         document.addEventListener('click', function(e) {
+            if (!dropdownNav.contains(e.target)) {
+               dropdownNav.classList.remove('active');
+            }
+         });
+      }
+    </script>
 </body>
-</html>
- 
+</html> 
