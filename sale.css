@@ -1840,7 +1840,6 @@ button.white:hover {
     gap: var(--space-xl);
     padding: 0 8%;
     margin: var(--space-2xl) 0;
-    flex-wrap: wrap;
 }
 
 #sm-banner .banner-box {

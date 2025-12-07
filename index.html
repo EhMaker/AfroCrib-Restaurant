@@ -622,12 +622,13 @@
          if (adminBlogs.length === 0) return;
 
          // Get the two most recent blogs (FIFO - First In First Out display)
+         // Limit to maximum of 2 blogs
          const blogsToDisplay = adminBlogs.slice(-2);
          
          // Clear existing banner boxes
          bannerSection.innerHTML = '';
 
-         // Add the blogs to the banner
+         // Add the blogs to the banner (maximum 2)
          blogsToDisplay.forEach((blog, index) => {
             const bannerBox = document.createElement('div');
             bannerBox.className = index === 0 ? 'banner-box' : 'banner-box banner-box2';
