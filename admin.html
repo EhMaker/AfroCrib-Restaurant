@@ -84,6 +84,9 @@
                 <button class="tab-btn" data-tab="features">
                     <i class="fas fa-star"></i> Manage Features
                 </button>
+                <button class="tab-btn" data-tab="blogs">
+                    <i class="fas fa-blog"></i> Manage Blogs
+                </button>
                 <button class="tab-btn" data-tab="analytics">
                     <i class="fas fa-chart-bar"></i> Analytics
                 </button>
@@ -217,6 +220,62 @@
 
                     <div id="feature-list" class="feature-list">
                         <!-- Dynamic feature list will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blogs Management Tab -->
+            <div id="blogs-tab" class="tab-content">
+                <div class="admin-grid">
+                    <!-- Add Blog Form -->
+                    <div class="admin-card">
+                        <h3><i class="fas fa-blog"></i> Add New Blog Post</h3>
+                        <p>Add blog posts to display in the homepage banner section (FIFO - newest 2 blogs shown).</p>
+                        
+                        <form id="add-blog-form">
+                            <div class="input-group">
+                                <label for="blog-title">Blog Title</label>
+                                <input type="text" id="blog-title" name="title" placeholder="e.g., Healthy Lifestyle Tips" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="blog-subtitle">Subtitle (Small text)</label>
+                                <input type="text" id="blog-subtitle" name="subtitle" placeholder="e.g., Healthy diet" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="blog-excerpt">Excerpt (Short description)</label>
+                                <input type="text" id="blog-excerpt" name="excerpt" placeholder="Brief summary for the banner" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="blog-content">Full Blog Content</label>
+                                <textarea id="blog-content" name="content" rows="6" placeholder="Enter the full blog content here..." required></textarea>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="blog-image">Featured Image URL</label>
+                                <input type="url" id="blog-image" name="image" placeholder="https://example.com/image.jpg or Saleimages/blog-image.jpg">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="blog-author">Author Name</label>
+                                <input type="text" id="blog-author" name="author" placeholder="e.g., AFROCRIB Team" required>
+                            </div>
+                            
+                            <button type="submit" class="admin-btn primary">
+                                <i class="fas fa-plus"></i> Add Blog Post
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Blog List -->
+                    <div class="admin-card">
+                        <h3><i class="fas fa-list"></i> All Blog Posts</h3>
+                        <p>The 2 most recent blogs are displayed on the homepage banner.</p>
+                        <div id="blog-list" class="blog-list">
+                            <!-- Dynamic blog list will be populated here -->
+                        </div>
                     </div>
                 </div>
             </div>

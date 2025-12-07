@@ -322,17 +322,17 @@
    </section>
 
    <section id="sm-banner" class="section-p1">
-    <div class="banner-box">
+    <div class="banner-box" data-blog-id="default-1">
         <h4>Healthy diet</h4>
         <h2>Healthy lifestyle</h2>
         <span>The best classic on our Menu</span>
-        <button class="white">Learn More</button>
+        <button class="white blog-learn-more">Learn More</button>
     </div>
-    <div class="banner-box banner-box2">
+    <div class="banner-box banner-box2" data-blog-id="default-2">
         <h4>Happy Belly</h4>
         <h2>Happy heart</h2>
         <span>The best classic on our Menu</span>
-        <button class="white">Learn More</button>
+        <button class="white blog-learn-more">Learn More</button>
     </div>
    </section>
 
@@ -610,6 +610,71 @@
       // Listen for custom event (for same-window updates)
       window.addEventListener('recipeAdded', function() {
          loadAdminRecipes();
+      });
+
+      // Load admin-added blogs into sm-banner section (FIFO system)
+      function loadAdminBlogs() {
+         const bannerSection = document.getElementById('sm-banner');
+         if (!bannerSection) return;
+
+         const adminBlogs = JSON.parse(localStorage.getItem('adminBlogs')) || [];
+         
+         if (adminBlogs.length === 0) return;
+
+         // Get the two most recent blogs (FIFO - First In First Out display)
+         const blogsToDisplay = adminBlogs.slice(-2);
+         
+         // Clear existing banner boxes
+         bannerSection.innerHTML = '';
+
+         // Add the blogs to the banner
+         blogsToDisplay.forEach((blog, index) => {
+            const bannerBox = document.createElement('div');
+            bannerBox.className = index === 0 ? 'banner-box' : 'banner-box banner-box2';
+            bannerBox.setAttribute('data-blog-id', blog.id);
+            
+            bannerBox.innerHTML = `
+               <h4>${blog.subtitle || 'Featured'}</h4>
+               <h2>${blog.title}</h2>
+               <span>${blog.excerpt || blog.content.substring(0, 50) + '...'}</span>
+               <button class="white blog-learn-more">Learn More</button>
+            `;
+            
+            bannerSection.appendChild(bannerBox);
+         });
+
+         // Attach click handlers to Learn More buttons
+         attachBlogClickHandlers();
+      }
+
+      // Handle Learn More button clicks
+      function attachBlogClickHandlers() {
+         document.querySelectorAll('.blog-learn-more').forEach(button => {
+            button.addEventListener('click', function(e) {
+               e.preventDefault();
+               const bannerBox = this.closest('[data-blog-id]');
+               const blogId = bannerBox.getAttribute('data-blog-id');
+               
+               // Store the selected blog ID in localStorage
+               localStorage.setItem('selectedBlogId', blogId);
+               
+               // Navigate to blog.html
+               window.location.href = 'blog.html';
+            });
+         });
+      }
+
+      // Load blogs when page loads
+      document.addEventListener('DOMContentLoaded', function() {
+         loadAdminBlogs();
+         attachBlogClickHandlers();
+      });
+
+      // Listen for storage changes (when blogs are added from admin panel)
+      window.addEventListener('storage', function(e) {
+         if (e.key === 'adminBlogs') {
+            loadAdminBlogs();
+         }
       });
    </script>
    <script src="sale.js"></script>

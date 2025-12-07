@@ -23,7 +23,6 @@
             <div>
                 <ul id="navbar">
                     <li><a href="index.html">Home</a></li>
-                    <li><a class="active" href="blog.html">Blog</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li class="dropdown-nav">
@@ -53,7 +52,14 @@
     </section>
 
     <section id="blog">
-        <div class="blog-box">
+        <!-- Single Blog Post View (shown when coming from homepage) -->
+        <div id="single-blog-view" style="display: none;">
+            <!-- Blog content will be loaded here dynamically -->
+        </div>
+
+        <!-- All Blogs View (default) -->
+        <div id="all-blogs-view">
+            <div class="blog-box">
             <div class="blog-img">
                 <img src="Saleimages/Wed/Healthylife.avif" alt="Healthy lifestyle image">
             </div>
@@ -115,6 +121,8 @@
             </div>
             <h1>13/04</h1>
         </div>
+        </div>
+        <!-- End of all-blogs-view -->
     </section>
    <section id="pagination" class="section-p1">
       <a href="#">1</a>
@@ -328,6 +336,43 @@
             }
          });
       }
+
+      // Load selected blog if coming from homepage
+      function loadSelectedBlog() {
+         const selectedBlogId = localStorage.getItem('selectedBlogId');
+         
+         if (selectedBlogId) {
+            const adminBlogs = JSON.parse(localStorage.getItem('adminBlogs')) || [];
+            const blog = adminBlogs.find(b => b.id == selectedBlogId);
+            
+            if (blog) {
+               // Show single blog view
+               document.getElementById('single-blog-view').style.display = 'block';
+               document.getElementById('all-blogs-view').style.display = 'none';
+               document.getElementById('pagination').style.display = 'none';
+               
+               // Display the blog
+               document.getElementById('single-blog-view').innerHTML = `
+                  <div class="blog-box single-blog">
+                     ${blog.image ? `<div class="blog-img"><img src="${blog.image}" alt="${blog.title}"></div>` : ''}
+                     <div class="blog-details">
+                        <h4>${blog.title}</h4>
+                        <p class="blog-meta">By ${blog.author} | ${blog.date}</p>
+                        <div class="blog-content">${blog.content.replace(/\n/g, '<br><br>')}</div>
+                        <br>
+                        <a href="index.html" class="back-to-home">← Back to Home</a>
+                     </div>
+                  </div>
+               `;
+               
+               // Clear the selection
+               localStorage.removeItem('selectedBlogId');
+            }
+         }
+      }
+
+      // Load blog on page load
+      document.addEventListener('DOMContentLoaded', loadSelectedBlog);
    </script>
    <script src="sale.js"></script>
    <script src="dashboard-auth.js"></script>

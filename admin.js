@@ -6,6 +6,7 @@ class AdminPanel {
     constructor() {
         this.recipes = JSON.parse(localStorage.getItem('adminRecipes')) || [];
         this.features = JSON.parse(localStorage.getItem('adminFeatures')) || [];
+        this.blogs = JSON.parse(localStorage.getItem('adminBlogs')) || [];
         this.currentUser = null;
         this.credentials = {
             username: 'admin',
@@ -21,6 +22,7 @@ class AdminPanel {
             this.checkAuthStatus();
             this.renderRecipeList();
             this.renderFeatureList();
+            this.renderBlogList();
             this.updateStats();
         }
     }
@@ -54,6 +56,12 @@ class AdminPanel {
         const addFeatureForm = document.getElementById('add-feature-form');
         if (addFeatureForm) {
             addFeatureForm.addEventListener('submit', (e) => this.handleAddFeature(e));
+        }
+
+        // Add blog form
+        const addBlogForm = document.getElementById('add-blog-form');
+        if (addBlogForm) {
+            addBlogForm.addEventListener('submit', (e) => this.handleAddBlog(e));
         }
 
         // Image input toggle
@@ -361,6 +369,35 @@ class AdminPanel {
         this.showMessage(`Feature "${feature.name}" added successfully!`, 'success');
     }
 
+    handleAddBlog(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        
+        const blog = {
+            id: Date.now(),
+            title: formData.get('title'),
+            subtitle: formData.get('subtitle'),
+            excerpt: formData.get('excerpt'),
+            content: formData.get('content'),
+            image: formData.get('image') || '',
+            author: formData.get('author'),
+            createdAt: new Date().toISOString(),
+            date: new Date().toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            })
+        };
+
+        this.blogs.push(blog);
+        this.saveBlogs();
+
+        e.target.reset();
+        this.renderBlogList();
+        this.updateStats();
+        this.showMessage(`Blog "${blog.title}" added successfully!`, 'success');
+    }
+
     addRecipeToHomepage(recipe) {
         // Store recipe for homepage rendering
         let homepageRecipes = JSON.parse(localStorage.getItem('homepageRecipes')) || [];
@@ -431,6 +468,33 @@ class AdminPanel {
         `).join('');
     }
 
+    renderBlogList() {
+        const blogList = document.getElementById('blog-list');
+        if (!blogList) return;
+
+        if (this.blogs.length === 0) {
+            blogList.innerHTML = '<p class="text-center">No blog posts added yet. Add your first blog using the form above!</p>';
+            return;
+        }
+
+        blogList.innerHTML = this.blogs.map((blog, index) => {
+            const isRecent = index >= this.blogs.length - 2;
+            return `
+            <div class="blog-item ${isRecent ? 'blog-recent' : ''}">
+                <div class="blog-info">
+                    <div class="blog-details">
+                        <h4>${blog.title}</h4>
+                        <p><strong>${blog.subtitle}</strong> - ${blog.excerpt}</p>
+                        <small>By ${blog.author} | ${blog.date}${isRecent ? ' <span class="badge-recent">🟢 Shown on Homepage</span>' : ''}</small>
+                    </div>
+                </div>
+                <button class="admin-btn danger" onclick="adminPanel.deleteBlog(${blog.id})">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `}).join('');
+    }
+
     deleteRecipe(id) {
         if (confirm('Are you sure you want to delete this recipe?')) {
             this.recipes = this.recipes.filter(recipe => recipe.id !== id);
@@ -463,6 +527,17 @@ class AdminPanel {
         }
     }
 
+    deleteBlog(id) {
+        if (confirm('Are you sure you want to delete this blog post?')) {
+            this.blogs = this.blogs.filter(blog => blog.id !== id);
+            this.saveBlogs();
+            
+            this.renderBlogList();
+            this.updateStats();
+            this.showMessage('Blog post deleted successfully!', 'success');
+        }
+    }
+
     updateStats() {
         const totalRecipesEl = document.getElementById('total-recipes');
         const totalFeaturesEl = document.getElementById('total-features');
@@ -479,6 +554,10 @@ class AdminPanel {
 
     saveFeatures() {
         localStorage.setItem('adminFeatures', JSON.stringify(this.features));
+    }
+
+    saveBlogs() {
+        localStorage.setItem('adminBlogs', JSON.stringify(this.blogs));
     }
 
     showMessage(message, type = 'info') {
