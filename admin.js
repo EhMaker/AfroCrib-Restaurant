@@ -366,6 +366,9 @@ class AdminPanel {
         let homepageRecipes = JSON.parse(localStorage.getItem('homepageRecipes')) || [];
         homepageRecipes.push(recipe);
         localStorage.setItem('homepageRecipes', JSON.stringify(homepageRecipes));
+        
+        // Dispatch custom event to notify homepage if it's open in another tab
+        window.dispatchEvent(new CustomEvent('recipeAdded', { detail: recipe }));
     }
 
     addFeatureToHomepage(feature) {

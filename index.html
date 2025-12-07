@@ -22,7 +22,6 @@
             <div>
                 <ul id="navbar">
                     <li><a class="active" href="index.html">Home</a></li>
-                    <!-- <li><a href="blog.html">Blog</a></li> -->
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li class="dropdown-nav">
@@ -257,7 +256,7 @@
  <section id="product1" >
     <h2 cl>New on our Menu</h2>
     <p>Summer collect Modern Taste</p>
-         <div class="pro-container">
+         <div class="pro-container" id="New-recipe">
                <div class="pro">
                    <img src="Saleimages/pngegg.png" height="210px" alt="Kebab Dish - Grilled kebab with french fries, meat and vegetables">
                    <div class="description">
@@ -556,6 +555,62 @@
             }
          });
       }
+
+      // Load admin-added recipes on page load
+      function loadAdminRecipes() {
+         const newRecipeContainer = document.getElementById('New-recipe');
+         if (!newRecipeContainer) return;
+
+         const homepageRecipes = JSON.parse(localStorage.getItem('homepageRecipes')) || [];
+         
+         if (homepageRecipes.length === 0) return;
+
+         // Clear existing admin recipes (keep static ones)
+         const existingAdminRecipes = newRecipeContainer.querySelectorAll('[data-recipe-id]');
+         existingAdminRecipes.forEach(recipe => recipe.remove());
+
+         // Add admin recipes to the container
+         homepageRecipes.forEach(recipe => {
+            const recipeDiv = document.createElement('div');
+            recipeDiv.className = 'pro';
+            recipeDiv.setAttribute('data-recipe-id', recipe.id);
+            
+            recipeDiv.innerHTML = `
+               <img src="${recipe.image}" height="210px" alt="${recipe.name}" onerror="this.src='Saleimages/pngegg.png'">
+               <div class="description">
+                  <span>${recipe.category || recipe.name}</span>
+                  <h5>${recipe.description}</h5>
+                  <div class="star">
+                     ${'<i class="fas fa-star"></i>'.repeat(recipe.rating || 5)}
+                  </div>
+                  <h4>₦${recipe.price.toFixed(2)}</h4>
+               </div>
+               <a href="#" aria-label="Add ${recipe.name} to cart"><i class="fal fa-shopping-cart cart"></i></a>
+            `;
+            
+            newRecipeContainer.appendChild(recipeDiv);
+         });
+
+         // Re-attach click handlers for the new recipe items
+         if (typeof attachProductClickHandlers === 'function') {
+            attachProductClickHandlers();
+         }
+      }
+
+      // Load recipes when page loads
+      document.addEventListener('DOMContentLoaded', loadAdminRecipes);
+
+      // Listen for storage changes (when recipes are added from admin panel)
+      window.addEventListener('storage', function(e) {
+         if (e.key === 'homepageRecipes') {
+            loadAdminRecipes();
+         }
+      });
+
+      // Listen for custom event (for same-window updates)
+      window.addEventListener('recipeAdded', function() {
+         loadAdminRecipes();
+      });
    </script>
    <script src="sale.js"></script>
    <script src="admin.js"></script>
