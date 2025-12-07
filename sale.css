@@ -1852,8 +1852,8 @@ button.white:hover {
     background-position: center;
     background-repeat: no-repeat;
     min-width: 45%;
-    min-height: 50vh;
-    padding: var(--space-2xl) 8%;
+    min-height: 35vh;
+    padding: calc(var(--space-xl) - 10px) calc(6% - 10px);
     border-radius: var(--radius-xl);
     position: relative;
     overflow: hidden;
