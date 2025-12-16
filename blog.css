@@ -3,6 +3,9 @@
     padding: var(--space-2xl, 3rem) 8%;
 }
 
+#single-blog-view{
+     display: none;
+}
 .blog-box {
     display: flex;
     flex-wrap: wrap;
