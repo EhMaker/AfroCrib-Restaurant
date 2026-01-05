@@ -2,22 +2,29 @@
 // SUPABASE AUTHENTICATION SYSTEM
 // ========================================
 
-// Supabase Configuration (Replace with your actual credentials)
-const SUPABASE_URL = 'https://fppnpevkegctkefjipoe.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwcG5wZXZrZWdjdGtlZmppcG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwMzA4NTMsImV4cCI6MjA3NTYwNjg1M30.l183uTySyCDqDDPjqQd8zBcVNoLI-xuQ_WYSj8g4Dzw';
+// Supabase Configuration
+window.SUPABASE_URL = window.SUPABASE_URL || 'https://fppnpevkegctkefjipoe.supabase.co';
+window.SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwcG5wZXZrZWdjdGtlZmppcG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwMzA4NTMsImV4cCI6MjA3NTYwNjg1M30.l183uTySyCDqDDPjqQd8zBcVNoLI-xuQ_WYSj8g4Dzw';
 
-// Initialize Supabase client
-let supabase;
+// Create local reference to global supabase client
+var supabase = null;
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Supabase (only if credentials are provided)s
-    if (SUPABASE_URL !== 'https://fppnpevkegctkefjipoe.supabase.co' && SUPABASE_ANON_KEY !== 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwcG5wZXZrZWdjdGtlZmppcG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwMzA4NTMsImV4cCI6MjA3NTYwNjg1M30.l183uTySyCDqDDPjqQd8zBcVNoLI-xuQ_WYSj8g4Dzw') {
-        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        console.log('✅ Supabase client initialized');
-    } else {
-        console.log('⚠️ Please update SUPABASE_URL and SUPABASE_ANON_KEY in auth.js');
+    // Check if Supabase SDK is loaded
+    if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+        console.error('⚠️ Supabase SDK not found. Add <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> before this file.');
+        return;
     }
+    
+    // Initialize or get existing Supabase client
+    if (!window.supabaseClient) {
+        window.supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+        console.log('✅ Supabase client initialized in auth.js');
+    }
+    
+    // Set local reference
+    supabase = window.supabaseClient;
     
     // Initialize auth system
     initializeAuth();
@@ -475,11 +482,13 @@ let authFlow;
 function initializeAuth() {
     authFlow = new AuthFlow();
     console.log('🔐 Authentication system initialized');
+    
+    // Make authFlow available globally after initialization
+    window.authFlow = authFlow;
 }
 
 // Global functions for external access
 window.AuthFlow = AuthFlow;
-window.authFlow = authFlow;
 
 // ========================================
 // SUPABASE SESSION MANAGEMENT
@@ -487,12 +496,10 @@ window.authFlow = authFlow;
 
 // Listen for auth state changes
 if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', function() {
-        if (supabase) {
             supabase.auth.onAuthStateChange((event, session) => {
-                console.log('Auth state change:', event, session);
+                console.log('Auth state change:', event);
                 
-                if (event === 'SIGNED_IN') {
+                if (event === 'SIGNED_IN' && session?.user) {
                     console.log('✅ User signed in:', session.user.email);
                     // You can add additional logic here for signed-in users
                 }
@@ -503,6 +510,8 @@ if (typeof window !== 'undefined') {
                     if (authFlow) {
                         authFlow.reset();
                     }
+                }
+            });     }
                 }
             });
         }

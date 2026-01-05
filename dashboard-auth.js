@@ -2,6 +2,23 @@
 // DASHBOARD AUTHENTICATION HANDLER
 // ========================================
 
+// Supabase Configuration
+window.SUPABASE_URL = window.SUPABASE_URL || 'https://fppnpevkegctkefjipoe.supabase.co';
+window.SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwcG5wZXZrZWdjdGtlZmppcG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwMzA4NTMsImV4cCI6MjA3NTYwNjg1M30.l183uTySyCDqDDPjqQd8zBcVNoLI-xuQ_WYSj8g4Dzw';
+
+// Initialize Supabase client as global variable (only if not already initialized)
+if (!window.supabaseClient) {
+    if (window.supabase && typeof window.supabase.createClient === 'function') {
+        window.supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+        console.log('✅ Supabase client initialized in dashboard-auth.js');
+    } else {
+        console.error('⚠️ Supabase SDK not loaded. Make sure to include the Supabase script before dashboard-auth.js');
+    }
+}
+
+// Create local reference
+var supabase = window.supabaseClient;
+
 class DashboardAuth {
     constructor() {
         this.init();
@@ -18,8 +35,11 @@ class DashboardAuth {
         if (userLoginLink) {
             userLoginLink.addEventListener('click', (e) => {
                 e.preventDefault();
+                console.log('👤 User login clicked');
                 this.handleUserLogin();
             });
+        } else {
+            console.warn('⚠️ User login link not found');
         }
 
         // Admin Login link
@@ -27,8 +47,11 @@ class DashboardAuth {
         if (adminLoginLink) {
             adminLoginLink.addEventListener('click', (e) => {
                 e.preventDefault();
+                console.log('👨‍💼 Admin login clicked');
                 this.handleAdminLogin();
             });
+        } else {
+            console.warn('⚠️ Admin login link not found');
         }
 
         // Mobile dropdown toggle
@@ -539,6 +562,12 @@ class DashboardAuth {
 
 // Initialize dashboard auth when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    window.dashboardAuth = new DashboardAuth();
-    console.log('🔐 Dashboard authentication initialized');
+    // Wait a bit to ensure Supabase is initialized
+    setTimeout(() => {
+        if (!supabase) {
+            console.error('⚠️ Supabase client not initialized in dashboard-auth.js');
+        }
+        window.dashboardAuth = new DashboardAuth();
+        console.log('🔐 Dashboard authentication initialized');
+    }, 100);
 });

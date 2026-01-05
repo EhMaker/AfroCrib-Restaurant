@@ -3,23 +3,26 @@
 // ========================================
 
 // Supabase Configuration
-const SUPABASE_URL = 'https://fppnpevkegctkefjipoe.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwcG5wZXZrZWdjdGtlZmppcG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwMzA4NTMsImV4cCI6MjA3NTYwNjg1M30.l183uTySyCDqDDPjqQd8zBcVNoLI-xuQ_WYSj8g4Dzw';
+window.SUPABASE_URL = window.SUPABASE_URL || 'https://fppnpevkegctkefjipoe.supabase.co';
+window.SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwcG5wZXZrZWdjdGtlZmppcG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwMzA4NTMsImV4cCI6MjA3NTYwNjg1M30.l183uTySyCDqDDPjqQd8zBcVNoLI-xuQ_WYSj8g4Dzw';
 
-// Initialize Supabase client
-let supabase;
-
-// Check if we're in browser environment and Supabase library is loaded
-if (typeof window !== 'undefined' && window.supabase) {
-    try {
-        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        console.log('✅ Supabase client initialized successfully');
-    } catch (error) {
-        console.error('❌ Failed to initialize Supabase:', error);
+// Initialize Supabase client as global variable (only if not already initialized)
+if (!window.supabaseClient) {
+    // Check if Supabase library is loaded
+    if (window.supabase && typeof window.supabase.createClient === 'function') {
+        try {
+            window.supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+            console.log('✅ Supabase client initialized successfully in auth-simple.js');
+        } catch (error) {
+            console.error('❌ Failed to initialize Supabase:', error);
+        }
+    } else {
+        console.error('❌ Supabase library not loaded. Make sure the CDN script is included before auth-simple.js');
     }
-} else {
-    console.error('❌ Supabase library not loaded. Make sure the CDN script is included.');
 }
+
+// Create local reference
+var supabase = window.supabaseClient;
 
 // ========================================
 // UTILITY FUNCTIONS

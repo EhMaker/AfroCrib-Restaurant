@@ -2,6 +2,23 @@
 // CART PAGE AUTHENTICATION
 // ========================================
 
+// Supabase Configuration
+window.SUPABASE_URL = window.SUPABASE_URL || 'https://fppnpevkegctkefjipoe.supabase.co';
+window.SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwcG5wZXZrZWdjdGtlZmppcG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwMzA4NTMsImV4cCI6MjA3NTYwNjg1M30.l183uTySyCDqDDPjqQd8zBcVNoLI-xuQ_WYSj8g4Dzw';
+
+// Initialize Supabase client as global variable (only if not already initialized)
+if (!window.supabaseClient) {
+    if (window.supabase && typeof window.supabase.createClient === 'function') {
+        window.supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+        console.log('✅ Supabase client initialized in cart-auth.js');
+    } else {
+        console.error('⚠️ Supabase SDK not loaded. Make sure to include the Supabase script before cart-auth.js');
+    }
+}
+
+// Create local reference
+var supabase = window.supabaseClient;
+
 class CartAuth {
     constructor() {
         this.currentEmail = null;
