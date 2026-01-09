@@ -4211,6 +4211,27 @@ button.white:hover {
         margin-left: var(--space-sm);
     }
     
+    /* Disable scroll animations on mobile */
+    .restaurant-name.scrolled .afr-text,
+    .restaurant-name.scrolled .crib-text {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .restaurant-name.scrolled .logo-as-o {
+        transform: none;
+        height: 2.5rem;
+        max-height: none;
+        margin-bottom: 0;
+        position: relative;
+        left: auto;
+        top: 5px;
+    }
+    
+    .restaurant-name.scrolled .restaurant-letters {
+        transform: none;
+    }
+    
     .afro-text {
         font-size: 1.8rem;
         letter-spacing: 1.5px;
@@ -5065,6 +5086,10 @@ button.white:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+    .fa-shopping-cart {
+        color:black;
+    }
     .form {
         flex-direction: column;
         align-items: stretch;
