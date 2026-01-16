@@ -496,6 +496,8 @@ window.AuthFlow = AuthFlow;
 
 // Listen for auth state changes
 if (typeof window !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', function() {
+        if (supabase) {
             supabase.auth.onAuthStateChange((event, session) => {
                 console.log('Auth state change:', event);
                 
@@ -510,8 +512,6 @@ if (typeof window !== 'undefined') {
                     if (authFlow) {
                         authFlow.reset();
                     }
-                }
-            });     }
                 }
             });
         }
