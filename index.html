@@ -1,164 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AFROCRIB Restaurant</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <link rel="stylesheet" href="sale.css">
-    <link rel="stylesheet" href="verify-modal.css">
-</head>
-<body>
-    <section id="header"> 
-        <div class="restaurant-name">
-            <div class="restaurant-letters">
-                <span class="afr-text">AFR</span>
-                <a href="index.html" aria-label="Go to homepage">
-                    <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="Logo as O">
-                </a>
-                <span class="crib-text">CRIB</span>
-            </div>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link rel="stylesheet" href="sale.css" />
+    <link rel="stylesheet" href="verify-modal.css" />
+  </head>
+  <body>
+    <section id="header">
+      <div class="restaurant-name">
+        <div class="restaurant-letters">
+          <span class="afr-text">AFR</span>
+          <a href="index.html" aria-label="Go to homepage">
+            <img
+              src="Saleimages/—Pngtree—restaurant logo_7932128.png"
+              class="logo-as-o"
+              alt="Logo as O"
+            />
+          </a>
+          <span class="crib-text">CRIB</span>
         </div>
-            <div>
-                <ul id="navbar">
-                    <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="dropdown-nav">
-                        <a href="#" id="dashboard-link">Dashboard <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item" id="user-login-link">
-                                <i class="fas fa-user"></i> User Login
-                            </a>
-                            <a href="#" class="dropdown-item" id="admin-login-link">
-                                <i class="fas fa-user-shield"></i> Admin Login
-                            </a>
-                        </div>
-                    </li>
-                    <li id="lg-bag"><a href="cart.html" aria-label="Go to shopping cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                    <li><a href="#" id="close" aria-label="Close menu"><i class="far fa-times"></i></a></li>
-                </ul>
+      </div>
+      <div>
+        <ul id="navbar">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="dropdown-nav">
+            <a href="#" id="dashboard-link"
+              >Dashboard <i class="fas fa-chevron-down"></i
+            ></a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item" id="user-login-link">
+                <i class="fas fa-user"></i> User Login
+              </a>
+              <a href="#" class="dropdown-item" id="admin-login-link">
+                <i class="fas fa-user-shield"></i> Admin Login
+              </a>
             </div>
-            <div id="mobile" class="mobile-nav">
-                <a href="cart.html" 
-                   class="mobile-cart" 
-                   aria-label="Shopping cart - 3 items">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="cart-badge">3</span>
-                </a>
-                <button id="bar" 
-                        class="menu-toggle" 
-                        aria-label="Open menu" 
-                        type="button">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                </button>
-            </div>
+          </li>
+          <li id="lg-bag">
+            <a href="cart.html" aria-label="Go to shopping cart"
+              ><i class="fa fa-shopping-cart" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#" id="close" aria-label="Close menu"
+              ><i class="far fa-times"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+      <div id="mobile" class="mobile-nav">
+        <a
+          href="cart.html"
+          class="mobile-cart"
+          aria-label="Shopping cart - 3 items"
+        >
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <span class="cart-badge">3</span>
+        </a>
+        <button
+          id="bar"
+          class="menu-toggle"
+          aria-label="Open menu"
+          type="button"
+        >
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
     </section>
 
     <section id="hero">
-        <h4>Hurry grab a portion of our</h4>
-        <h2>Tasty Meal that</h2>
-        <h1>Suits your taste</h1>
-        <p>affordable and satisfying </p>
-        <button id="order-now">order now</button>
+      <h4>Hurry grab a portion of our</h4>
+      <h2>Tasty Meal that</h2>
+      <h1>Suits your taste</h1>
+      <p>affordable and satisfying</p>
+      <button id="order-now">order now</button>
     </section>
 
     <section id="feature" class="section-p1">
-             <div class="fe-box">
-                <img src="Saleimages/Tues/pngegg (2).png" height="115px" alt="Western Cuisine">
-                <h6>Western Cuisine</h6>
-             </div>
-             <div class="fe-box">
-                <img src="Saleimages/Wed/NIGERIAN JOLLOF RICE.jfif" height="115px" alt="Nigerian Jollof Rice">
-                <h6>Rice dishes</h6>
-             </div>
-             <div class="fe-box">
-                <img src="Saleimages/Wed/pngegg (7).png" height="115px" alt="Noodles">
-                <h6>Noodles</h6>
-             </div>
-             <div class="fe-box">
-                <img src="Saleimages/Wed/burger.jpg" height="115px" alt="Burger">
-                <h6>Burger</h6>
-             </div>
-             <div class="fe-box">
-                <img src="Saleimages/cake1.png" height="115px" alt="Cakes">
-                <h6>Cakes</h6>
-             </div>
-             <div class="fe-box">
-                <img src="Saleimages/Wed/Moimoi.jpg" height="115px" alt="MoiMoi">
-                <h6>MoiMoi</h6>
-             </div>
+      <div class="fe-box">
+        <img
+          src="Saleimages/Tues/pngegg (2).png"
+          height="115px"
+          alt="Western Cuisine"
+        />
+        <h6>Western Cuisine</h6>
+      </div>
+      <div class="fe-box">
+        <img
+          src="Saleimages/Wed/NIGERIAN JOLLOF RICE.jfif"
+          height="115px"
+          alt="Nigerian Jollof Rice"
+        />
+        <h6>Rice dishes</h6>
+      </div>
+      <div class="fe-box">
+        <img src="Saleimages/Wed/pngegg (7).png" height="115px" alt="Noodles" />
+        <h6>Noodles</h6>
+      </div>
+      <div class="fe-box">
+        <img src="Saleimages/Wed/burger.jpg" height="115px" alt="Burger" />
+        <h6>Burger</h6>
+      </div>
+      <div class="fe-box">
+        <img src="Saleimages/cake1.png" height="115px" alt="Cakes" />
+        <h6>Cakes</h6>
+      </div>
+      <div class="fe-box">
+        <img src="Saleimages/Wed/Moimoi.jpg" height="115px" alt="MoiMoi" />
+        <h6>MoiMoi</h6>
+      </div>
     </section>
 
     <section id="product1">
-     <h2>Menu</h2>
-     <p>Summer collect Modern Taste</p>
-          <div class="pro-container">
-                <div class="pro" onclick="window.location.href='Sproduct.html';">
-                    <img src="Saleimages/IMG_4947.JPG" height="210px" alt="Rice and Stew - Rice with beans, chicken, plantain and vegetables">
-                    <div class="description">
-                        <span>Rice and Stew</span>
-                        <h5>Rice, Beans, Chicken, Plantain and vegetables</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>₦5299.25</h4>
-                    </div>
-                    <a href="#" aria-label="Add Rice and Stew to cart"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="Saleimages/IMG_4948.JPG" height="210px" alt="Egwusi Soup and Semovita - Traditional Nigerian egwu soup with semovita and meat">
-                    <div class="description">
-                        <span>Egwusi Soup and Semovita</span>
-                        <h5>Egwu Soup, Semovita, and meats</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>₦5299.25</h4>
-                    </div>
-                    <a href="#" aria-label="Add Egwusi Soup and Semovita to cart"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="Saleimages/IMG_4949.JPG" height="210px" alt="Fried Rice and Chicken - Nigerian style fried rice served with chicken">
-                    <div class="description">
-                        <span>Rice</span>
-                        <h5>Fried rice and Chicken</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>₦5299.25</h4>
-                    </div>
-                    <a href="#" aria-label="Add Fried Rice and Chicken to cart"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="Saleimages/IMG_4950.JPG" height="210px" alt="Abacha - Traditional Nigerian cassava dish with fish, meat and ugwu leaves">
-                    <div class="description">
-                        <span>Abacha</span>
-                        <h5>Abacha, Fish, Meats and Ugwu leave</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>₦2145.25</h4>
-                    </div>
-                    <a href="#" aria-label="Add Abacha to cart"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <!-- <div class="pro">
+      <h2>Menu</h2>
+      <p>Summer collect Modern Taste</p>
+      <div class="pro-container">
+        <div class="pro" onclick="window.location.href = 'Sproduct.html'">
+          <img
+            src="Saleimages/IMG_4947.JPG"
+            height="210px"
+            alt="Rice and Stew - Rice with beans, chicken, plantain and vegetables"
+          />
+          <div class="description">
+            <span>Rice and Stew</span>
+            <h5>Rice, Beans, Chicken, Plantain and vegetables</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦5299.25</h4>
+          </div>
+          <a href="#" aria-label="Add Rice and Stew to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
+        <div class="pro">
+          <img
+            src="Saleimages/IMG_4948.JPG"
+            height="210px"
+            alt="Egwusi Soup and Semovita - Traditional Nigerian egwu soup with semovita and meat"
+          />
+          <div class="description">
+            <span>Egwusi Soup and Semovita</span>
+            <h5>Egwu Soup, Semovita, and meats</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦5299.25</h4>
+          </div>
+          <a href="#" aria-label="Add Egwusi Soup and Semovita to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
+        <div class="pro">
+          <img
+            src="Saleimages/IMG_4949.JPG"
+            height="210px"
+            alt="Fried Rice and Chicken - Nigerian style fried rice served with chicken"
+          />
+          <div class="description">
+            <span>Rice</span>
+            <h5>Fried rice and Chicken</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦5299.25</h4>
+          </div>
+          <a href="#" aria-label="Add Fried Rice and Chicken to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
+        <div class="pro">
+          <img
+            src="Saleimages/IMG_4950.JPG"
+            height="210px"
+            alt="Abacha - Traditional Nigerian cassava dish with fish, meat and ugwu leaves"
+          />
+          <div class="description">
+            <span>Abacha</span>
+            <h5>Abacha, Fish, Meats and Ugwu leave</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦2145.25</h4>
+          </div>
+          <a href="#" aria-label="Add Abacha to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
+        <!-- <div class="pro">
                     <img src="Saleimages/IMG_4951.PNG" height="210px">
                     <div class="description">
                         <span>Noodles</span>
@@ -206,386 +259,458 @@
                     </div>
                     <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
                 </div> -->
-                <div class="pro">
-                    <img src="Saleimages/Tues/pngegg (2).png" height="210px" alt="Pepperoni Pizza - Classic pepperoni pizza with melted cheese">
-                    <div class="description">
-                        <span>Pepperoni Pizza</span>
-                        <h5>Pizza and Melted Cheese</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>₦11999.25</h4>
-                    </div>
-                    <a href="#" aria-label="Add Pepperoni Pizza to cart"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="Saleimages/Wed/YamSauce.jpg" height="210px" alt="Yam and Egg Sauce - Boiled yam served with egg sauce">
-                    <div class="description">
-                        <span>Yam and Egg Sauce</span>
-                        <h5>Boiled Yam and Egg Sauce</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>₦3245.25</h4>
-                    </div>
-                    <a href="#" aria-label="Add Yam and Egg Sauce to cart"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="Saleimages/Wed/Afang Soup.webp" alt="Afang Soup - Traditional Nigerian soup with afang leaves, kpomo, fish and meat">
-                    <div class="description">
-                        <span>Afang Soup</span>
-                        <h5>Afang Soup, Kpomo, Fish and meats</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>₦5299.25</h4>
-                    </div>
-                    <a href="#" aria-label="Add Afang Soup to cart"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
+        <div class="pro">
+          <img
+            src="Saleimages/Tues/pngegg (2).png"
+            height="210px"
+            alt="Pepperoni Pizza - Classic pepperoni pizza with melted cheese"
+          />
+          <div class="description">
+            <span>Pepperoni Pizza</span>
+            <h5>Pizza and Melted Cheese</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦11999.25</h4>
           </div>
+          <a href="#" aria-label="Add Pepperoni Pizza to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
+        <div class="pro">
+          <img
+            src="Saleimages/Wed/YamSauce.jpg"
+            height="210px"
+            alt="Yam and Egg Sauce - Boiled yam served with egg sauce"
+          />
+          <div class="description">
+            <span>Yam and Egg Sauce</span>
+            <h5>Boiled Yam and Egg Sauce</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦3245.25</h4>
+          </div>
+          <a href="#" aria-label="Add Yam and Egg Sauce to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
+        <div class="pro">
+          <img
+            src="Saleimages/Wed/Afang Soup.webp"
+            alt="Afang Soup - Traditional Nigerian soup with afang leaves, kpomo, fish and meat"
+          />
+          <div class="description">
+            <span>Afang Soup</span>
+            <h5>Afang Soup, Kpomo, Fish and meats</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦5299.25</h4>
+          </div>
+          <a href="#" aria-label="Add Afang Soup to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
+      </div>
     </section>
 
     <section id="banner" class="section-m1">
-       <h4>Are you planning for an Event? Order now</h4>
-       <h2>Up to <span>15% discount</span> - of the variety of your choice</h2>
-       <h3>delivery is totally free !</h3>
-       <button class="normal">Explore More</button> 
+      <h4>Are you planning for an Event? Order now</h4>
+      <h2>Up to <span>15% discount</span> - of the variety of your choice</h2>
+      <h3>delivery is totally free !</h3>
+      <button class="normal">Explore More</button>
     </section>
 
- <section id="product1" >
-    <h2 cl>New on our Menu</h2>
-    <p>Summer collect Modern Taste</p>
-         <div class="pro-container" id="New-recipe">
-               <div class="pro">
-                   <img src="Saleimages/pngegg.png" height="210px" alt="Kebab Dish - Grilled kebab with french fries, meat and vegetables">
-                   <div class="description">
-                       <span>kebab dish</span>
-                       <h5>Kebab, French Fries, Meat, vegetables</h5>
-                       <div class="star">
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                       </div>
-                       <h4>₦6429.25</h4>
-                   </div>
-                   <a href="#" aria-label="Add Kebab Dish to cart"><i class="fal fa-shopping-cart cart"></i></a>
-               </div>
+    <section id="product1">
+      <h2 cl>New on our Menu</h2>
+      <p>Summer collect Modern Taste</p>
+      <div class="pro-container" id="New-recipe">
+        <div class="pro">
+          <img
+            src="Saleimages/pngegg.png"
+            height="210px"
+            alt="Kebab Dish - Grilled kebab with french fries, meat and vegetables"
+          />
+          <div class="description">
+            <span>kebab dish</span>
+            <h5>Kebab, French Fries, Meat, vegetables</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦6429.25</h4>
+          </div>
+          <a href="#" aria-label="Add Kebab Dish to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
 
-               <div class="pro">
-                   <img src="Saleimages/Wed/High-Quality Chicken Teriyaki Transparent png, Japanese Cuisine, Grilled Delight.jpg" alt="Teriyaki Chicken - Japanese style teriyaki chicken with rice">
-                   <div class="description">
-                       <span>Teriyaki Chicken</span>
-                       <h5>Teriyaki sauce, rice etc</h5>
-                       <div class="star">
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                       </div>
-                       <h4>₦5299.25</h4>
-                   </div>
-                   <a href="#" aria-label="Add Teriyaki Chicken to cart"><i class="fal fa-shopping-cart cart"></i></a>
-               </div>
+        <div class="pro">
+          <img
+            src="Saleimages/Wed/High-Quality Chicken Teriyaki Transparent png, Japanese Cuisine, Grilled Delight.jpg"
+            alt="Teriyaki Chicken - Japanese style teriyaki chicken with rice"
+          />
+          <div class="description">
+            <span>Teriyaki Chicken</span>
+            <h5>Teriyaki sauce, rice etc</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦5299.25</h4>
+          </div>
+          <a href="#" aria-label="Add Teriyaki Chicken to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
 
+        <div class="pro">
+          <img
+            src="Saleimages/Wed/tuwo shinkafa.jpg"
+            alt="Tuwo Shinkafa - Traditional northern Nigerian dish with meat"
+          />
+          <div class="description">
+            <span>Tuwo shinkafa</span>
+            <h5>Tuwo shinkafa, meats</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>₦4145.25</h4>
+          </div>
+          <a href="#" aria-label="Add Tuwo Shinkafa to cart"
+            ><i class="fal fa-shopping-cart cart"></i
+          ></a>
+        </div>
+      </div>
 
+      <!-- View All Products Button -->
+      <div class="-btn-container">
+        <a href="shop.html" class="view-all-btn">
+          <span>View All Our Recipes</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
 
-               <div class="pro">
-                   <img src="Saleimages/Wed/tuwo shinkafa.jpg" alt="Tuwo Shinkafa - Traditional northern Nigerian dish with meat">
-                   <div class="description">
-                       <span>Tuwo shinkafa</span>
-                       <h5>Tuwo shinkafa, meats</h5>
-                       <div class="star">
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                       </div>
-                       <h4>₦4145.25</h4>
-                   </div>
-                   <a href="#" aria-label="Add Tuwo Shinkafa to cart"><i class="fal fa-shopping-cart cart"></i></a>
-               </div>
-         </div>
-
-         <!-- View All Products Button -->
-         <div class="-btn-container">
-             <a href="shop.html" class="view-all-btn">
-                 <span>View All Our Recipes</span>
-                 <i class="fas fa-arrow-right"></i>
-             </a>
-         </div>
-              
-   </section>
-
-   <section id="sm-banner" class="section-p1">
-    <div class="banner-box" data-blog-id="default-1">
+    <section id="sm-banner" class="section-p1">
+      <div class="banner-box" data-blog-id="default-1">
         <h4>Healthy diet</h4>
         <h2>Healthy lifestyle</h2>
         <span>The best classic on our Menu</span>
         <button class="white blog-learn-more">Learn More</button>
-    </div>
-    <div class="banner-box banner-box2" data-blog-id="default-2">
+      </div>
+      <div class="banner-box banner-box2" data-blog-id="default-2">
         <h4>Happy Belly</h4>
         <h2>Happy heart</h2>
         <span>The best classic on our Menu</span>
         <button class="white blog-learn-more">Learn More</button>
-    </div>
-   </section>
+      </div>
+    </section>
 
-   <section  id="banner3">
-    <div class="banner-box">
+    <section id="banner3">
+      <div class="banner-box">
         <h2>WHOLE SALE</h2>
         <h3>Event package 10% discount</h3>
-    </div>
-    <div class="banner-box banner-box2">
+      </div>
+      <div class="banner-box banner-box2">
         <h2>WHOLE SALE</h2>
         <h3>Chris Max Package 10% discount</h3>
-    </div>
-   </section>
-   
-   <section id="news" class="section-p1 section-m1 ">
-         <div class="newstext">
-            <h4>Get the Latest Flavors & Deals</h4>
-            <p>Delicious updates and members-only deals. <span>special offers</span></p>
-         </div>
-         <div class="form">
-            <input type="email" id="newsletter-email" placeholder="Your email address" required>
-            <button type="button" id="join-btn" class="normal">Join Now</button>
-         </div>
-   </section>
-
-   <!-- Verification Modal -->
-   <div id="verify-modal-overlay" class="verify-modal-overlay">
-      <div class="verify-modal">
-         <button id="verify-modal-close" class="verify-modal-close">×</button>
-         
-         <div class="verify-modal-header">
-            <div class="verify-modal-icon">📧</div>
-            <h2>Check Your Email</h2>
-            <p>We sent a 6-digit code to:</p>
-         </div>
-
-         <div class="verify-email-display" id="verify-modal-email">Loading...</div>
-
-         <div id="verify-modal-message" class="verify-message"></div>
-
-         <form id="verify-modal-form" onsubmit="return false;">
-            <div class="verify-form-group">
-               <label for="verify-modal-otp">Verification Code</label>
-               <input 
-                  type="text" 
-                  id="verify-modal-otp" 
-                  placeholder="000000" 
-                  maxlength="6"
-                  pattern="[0-9]{6}"
-                  required
-                  autocomplete="one-time-code"
-               >
-            </div>
-
-            <button type="button" id="verify-modal-btn" class="verify-btn verify-btn-primary">
-               Verify & Login
-            </button>
-            <button type="button" id="verify-modal-resend" class="verify-btn verify-btn-secondary">
-               Resend Code
-            </button>
-         </form>
       </div>
-   </div>
+    </section>
 
-   <!-- Footer -->
-   <footer class="section-p1" role="contentinfo">
-        <div class="footer-container">
-            <div class="footer-section footer-brand">
-                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" 
-                     class="logo" 
-                     height="50" 
-                     alt="Restaurant logo">
-                     <h2>AFROCRIB Restaurant</h2>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Contact Information</h4>
-                <div class="contact-info">
-                    <p><strong>Address:</strong> Wellington Road, Street 32 A4, Ikeja</p>
-                    <p><strong>Phone:</strong> <a href="tel:+2348105435361">+234 810 543 5361</a></p>
-                    <p><strong>Hours:</strong> 9:00 AM - 6:00 PM, Monday - Saturday</p>
-                </div>
-                <div class="social-follow">
-                    <h4>Follow Us</h4>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook" class="social-link">
-                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" aria-label="Twitter" class="social-link">
-                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" aria-label="Instagram" class="social-link">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" aria-label="YouTube" class="social-link">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <section id="news" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Get the Latest Flavors & Deals</h4>
+        <p>
+          Delicious updates and members-only deals. <span>special offers</span>
+        </p>
+      </div>
+      <div class="form">
+        <input
+          type="email"
+          id="newsletter-email"
+          placeholder="Your email address"
+          required
+        />
+        <button type="button" id="join-btn" class="normal">Join Now</button>
+      </div>
+    </section>
 
-            <div class="footer-section">
-                <h4>About</h4>
-                <nav aria-label="About links">
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="#">Delivery Information</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <!-- Verification Modal -->
+    <div id="verify-modal-overlay" class="verify-modal-overlay">
+      <div class="verify-modal">
+        <button id="verify-modal-close" class="verify-modal-close">×</button>
 
-            <div class="footer-section">
-                <h4>My Account</h4>
-                <nav aria-label="Account links">
-                    <ul class="footer-links">
-                        <li><a href="#">Sign In</a></li>
-                        <li><a href="cart.html">View Cart</a></li>
-                        <li><a href="#">My Wishlist</a></li>
-                        <li><a href="#">Track My Order</a></li>
-                        <li><a href="#">Help & Support</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="footer-section">
-                <h4>Install App</h4>
-                <p>From App Store or Google Play</p>
-                <div class="AppGoogle">
-                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40">
-                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="40">
-                </div>
-                <p>Secured Pay Gateway</p>
-                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="Payment security badge - PayPal, Visa, Mastercard" height="35">
-            </div>
-                    <div class="footer-section-bottom">
-            <div class="copyright">
-                <p>&copy; 2025 AFROCRIB Restaurant. All rights reserved.</p>
-            </div>
-        </div>
+        <div class="verify-modal-header">
+          <div class="verify-modal-icon">📧</div>
+          <h2>Check Your Email</h2>
+          <p>We sent a 6-digit code to:</p>
         </div>
 
+        <div class="verify-email-display" id="verify-modal-email">
+          Loading...
+        </div>
 
+        <div id="verify-modal-message" class="verify-message"></div>
+
+        <form id="verify-modal-form" onsubmit="return false;">
+          <div class="verify-form-group">
+            <label for="verify-modal-otp">Verification Code</label>
+            <input
+              type="text"
+              id="verify-modal-otp"
+              placeholder="000000"
+              maxlength="6"
+              pattern="[0-9]{6}"
+              required
+              autocomplete="one-time-code"
+            />
+          </div>
+
+          <button
+            type="button"
+            id="verify-modal-btn"
+            class="verify-btn verify-btn-primary"
+          >
+            Verify & Login
+          </button>
+          <button
+            type="button"
+            id="verify-modal-resend"
+            class="verify-btn verify-btn-secondary"
+          >
+            Resend Code
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="section-p1" role="contentinfo">
+      <div class="footer-container">
+        <div class="footer-section footer-brand">
+          <img
+            src="Saleimages/—Pngtree—restaurant logo_7932128.png"
+            class="logo"
+            height="50"
+            alt="Restaurant logo"
+          />
+          <h2>AFROCRIB Restaurant</h2>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Information</h4>
+          <div class="contact-info">
+            <p>
+              <strong>Address:</strong> Wellington Road, Street 32 A4, Ikeja
+            </p>
+            <p>
+              <strong>Phone:</strong>
+              <a href="tel:+2348105435361">+234 810 543 5361</a>
+            </p>
+            <p><strong>Hours:</strong> 9:00 AM - 6:00 PM, Monday - Saturday</p>
+          </div>
+          <div class="social-follow">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook" class="social-link">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </a>
+              <a href="#" aria-label="Twitter" class="social-link">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="#" aria-label="Instagram" class="social-link">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="#" aria-label="YouTube" class="social-link">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>About</h4>
+          <nav aria-label="About links">
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="#">Delivery Information</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-section">
+          <h4>My Account</h4>
+          <nav aria-label="Account links">
+            <ul class="footer-links">
+              <li><a href="#">Sign In</a></li>
+              <li><a href="cart.html">View Cart</a></li>
+              <li><a href="#">My Wishlist</a></li>
+              <li><a href="#">Track My Order</a></li>
+              <li><a href="#">Help & Support</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-section">
+          <h4>Install App</h4>
+          <p>From App Store or Google Play</p>
+          <div class="AppGoogle">
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Download on the App Store"
+              height="40"
+            />
+            <img
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+              alt="Get it on Google Play"
+              height="40"
+            />
+          </div>
+          <p>Secured Pay Gateway</p>
+          <img
+            src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg"
+            alt="Payment security badge - PayPal, Visa, Mastercard"
+            height="35"
+          />
+        </div>
+        <div class="footer-section-bottom">
+          <div class="copyright">
+            <p>&copy; 2025 AFROCRIB Restaurant. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
     </footer>
 
-   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-   <script src="auth-simple.js"></script>
-   <script src="verify-modal.js"></script>
-   <script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth-simple.js"></script>
+    <script src="verify-modal.js"></script>
+    <script>
       // Handle Join Now button click
-      document.getElementById('join-btn')?.addEventListener('click', async () => {
-         const emailInput = document.getElementById('newsletter-email');
-         const email = emailInput.value.trim();
-         const joinBtn = document.getElementById('join-btn');
+      document
+        .getElementById("join-btn")
+        ?.addEventListener("click", async () => {
+          const emailInput = document.getElementById("newsletter-email");
+          const email = emailInput.value.trim();
+          const joinBtn = document.getElementById("join-btn");
 
-         // Validate email
-         if (!email) {
-            alert('Please enter your email address');
+          // Validate email
+          if (!email) {
+            alert("Please enter your email address");
             emailInput.focus();
             return;
-         }
+          }
 
-         if (!isValidEmail(email)) {
-            alert('Please enter a valid email address');
+          if (!isValidEmail(email)) {
+            alert("Please enter a valid email address");
             emailInput.focus();
             return;
-         }
+          }
 
-         // Show loading
-         showLoading(joinBtn, true);
+          // Show loading
+          showLoading(joinBtn, true);
 
-         try {
+          try {
             // Send OTP using Supabase
             const { data, error } = await supabase.auth.signInWithOtp({
-               email: email,
-               options: {
-                  shouldCreateUser: true
-               }
+              email: email,
+              options: {
+                shouldCreateUser: true,
+              },
             });
 
             if (error) throw error;
 
             // Success - show verification modal instead of redirecting
             showVerifyModal(email);
-            
-            // Clear the email input
-            emailInput.value = '';
 
-         } catch (error) {
-            console.error('Join error:', error);
-            alert(error.message || 'Failed to send verification code. Please try again.');
-         } finally {
-            showLoading(joinBtn, false, 'Join Now');
-         }
-      });
+            // Clear the email input
+            emailInput.value = "";
+          } catch (error) {
+            console.error("Join error:", error);
+            alert(
+              error.message ||
+                "Failed to send verification code. Please try again.",
+            );
+          } finally {
+            showLoading(joinBtn, false, "Join Now");
+          }
+        });
 
       // Allow Enter key to submit
-      document.getElementById('newsletter-email')?.addEventListener('keypress', (e) => {
-         if (e.key === 'Enter') {
-            document.getElementById('join-btn').click();
-         }
-      });
+      document
+        .getElementById("newsletter-email")
+        ?.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            document.getElementById("join-btn").click();
+          }
+        });
 
       // Toggle dashboard dropdown on click
-      const dashboardLink = document.getElementById('dashboard-link');
-      const dropdownNav = document.querySelector('.dropdown-nav');
-      
+      const dashboardLink = document.getElementById("dashboard-link");
+      const dropdownNav = document.querySelector(".dropdown-nav");
+
       if (dashboardLink && dropdownNav) {
-         dashboardLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            dropdownNav.classList.toggle('active');
-         });
-         
-         // Close dropdown when clicking outside
-         document.addEventListener('click', function(e) {
-            if (!dropdownNav.contains(e.target)) {
-               dropdownNav.classList.remove('active');
-            }
-         });
+        dashboardLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          dropdownNav.classList.toggle("active");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!dropdownNav.contains(e.target)) {
+            dropdownNav.classList.remove("active");
+          }
+        });
       }
 
       // Load admin-added recipes on page load
       function loadAdminRecipes() {
-         const newRecipeContainer = document.getElementById('New-recipe');
-         if (!newRecipeContainer) return;
+        const newRecipeContainer = document.getElementById("New-recipe");
+        if (!newRecipeContainer) return;
 
-         const homepageRecipes = JSON.parse(localStorage.getItem('homepageRecipes')) || [];
-         
-         if (homepageRecipes.length === 0) return;
+        const homepageRecipes =
+          JSON.parse(localStorage.getItem("homepageRecipes")) || [];
 
-         // Clear existing admin recipes (keep static ones)
-         const existingAdminRecipes = newRecipeContainer.querySelectorAll('[data-recipe-id]');
-         existingAdminRecipes.forEach(recipe => recipe.remove());
+        if (homepageRecipes.length === 0) return;
 
-         // Add admin recipes to the container
-         homepageRecipes.forEach(recipe => {
-            const recipeDiv = document.createElement('div');
-            recipeDiv.className = 'pro';
-            recipeDiv.setAttribute('data-recipe-id', recipe.id);
-            
-            recipeDiv.innerHTML = `
+        // Clear existing admin recipes (keep static ones)
+        const existingAdminRecipes =
+          newRecipeContainer.querySelectorAll("[data-recipe-id]");
+        existingAdminRecipes.forEach((recipe) => recipe.remove());
+
+        // Add admin recipes to the container
+        homepageRecipes.forEach((recipe) => {
+          const recipeDiv = document.createElement("div");
+          recipeDiv.className = "pro";
+          recipeDiv.setAttribute("data-recipe-id", recipe.id);
+
+          recipeDiv.innerHTML = `
                <img src="${recipe.image}" height="210px" alt="${recipe.name}" onerror="this.src='Saleimages/pngegg.png'">
                <div class="description">
                   <span>${recipe.category || recipe.name}</span>
@@ -597,110 +722,111 @@
                </div>
                <a href="#" aria-label="Add ${recipe.name} to cart"><i class="fal fa-shopping-cart cart"></i></a>
             `;
-            
-            newRecipeContainer.appendChild(recipeDiv);
-         });
 
-         // Re-attach click handlers for the new recipe items
-         if (typeof attachProductClickHandlers === 'function') {
-            attachProductClickHandlers();
-         }
+          newRecipeContainer.appendChild(recipeDiv);
+        });
+
+        // Re-attach click handlers for the new recipe items
+        if (typeof attachProductClickHandlers === "function") {
+          attachProductClickHandlers();
+        }
       }
 
       // Load recipes when page loads
-      document.addEventListener('DOMContentLoaded', loadAdminRecipes);
+      document.addEventListener("DOMContentLoaded", loadAdminRecipes);
 
       // Listen for storage changes (when recipes are added from admin panel)
-      window.addEventListener('storage', function(e) {
-         if (e.key === 'homepageRecipes') {
-            loadAdminRecipes();
-         }
+      window.addEventListener("storage", function (e) {
+        if (e.key === "homepageRecipes") {
+          loadAdminRecipes();
+        }
       });
 
       // Listen for custom event (for same-window updates)
-      window.addEventListener('recipeAdded', function() {
-         loadAdminRecipes();
+      window.addEventListener("recipeAdded", function () {
+        loadAdminRecipes();
       });
 
       // Load admin-added blogs into sm-banner section (FIFO system)
       function loadAdminBlogs() {
-         const bannerSection = document.getElementById('sm-banner');
-         if (!bannerSection) return;
+        const bannerSection = document.getElementById("sm-banner");
+        if (!bannerSection) return;
 
-         const adminBlogs = JSON.parse(localStorage.getItem('adminBlogs')) || [];
-         
-         if (adminBlogs.length === 0) return;
+        const adminBlogs = JSON.parse(localStorage.getItem("adminBlogs")) || [];
 
-         // Get the two most recent blogs (FIFO - First In First Out display)
-         // Limit to maximum of 2 blogs
-         const blogsToDisplay = adminBlogs.slice(-2);
-         
-         // Clear existing banner boxes
-         bannerSection.innerHTML = '';
+        if (adminBlogs.length === 0) return;
 
-         // Add the blogs to the banner (maximum 2)
-         blogsToDisplay.forEach((blog, index) => {
-            const bannerBox = document.createElement('div');
-            bannerBox.className = index === 0 ? 'banner-box' : 'banner-box banner-box2';
-            bannerBox.setAttribute('data-blog-id', blog.id);
-            
-            bannerBox.innerHTML = `
-               <h4>${blog.subtitle || 'Featured'}</h4>
+        // Get the two most recent blogs (FIFO - First In First Out display)
+        // Limit to maximum of 2 blogs
+        const blogsToDisplay = adminBlogs.slice(-2);
+
+        // Clear existing banner boxes
+        bannerSection.innerHTML = "";
+
+        // Add the blogs to the banner (maximum 2)
+        blogsToDisplay.forEach((blog, index) => {
+          const bannerBox = document.createElement("div");
+          bannerBox.className =
+            index === 0 ? "banner-box" : "banner-box banner-box2";
+          bannerBox.setAttribute("data-blog-id", blog.id);
+
+          bannerBox.innerHTML = `
+               <h4>${blog.subtitle || "Featured"}</h4>
                <h2>${blog.title}</h2>
-               <span>${blog.excerpt || blog.content.substring(0, 50) + '...'}</span>
+               <span>${blog.excerpt || blog.content.substring(0, 50) + "..."}</span>
                <button class="white blog-learn-more">Learn More</button>
             `;
-            
-            bannerSection.appendChild(bannerBox);
-         });
 
-         // Attach click handlers to Learn More buttons
-         attachBlogClickHandlers();
+          bannerSection.appendChild(bannerBox);
+        });
+
+        // Attach click handlers to Learn More buttons
+        attachBlogClickHandlers();
       }
 
       // Handle Learn More button clicks
       function attachBlogClickHandlers() {
-         document.querySelectorAll('.blog-learn-more').forEach(button => {
-            button.addEventListener('click', function(e) {
-               e.preventDefault();
-               const bannerBox = this.closest('[data-blog-id]');
-               const blogId = bannerBox.getAttribute('data-blog-id');
-               
-               // Store the selected blog ID in localStorage
-               localStorage.setItem('selectedBlogId', blogId);
-               
-               // Navigate to blog.html
-               window.location.href = 'blog.html';
-            });
-         });
+        document.querySelectorAll(".blog-learn-more").forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            const bannerBox = this.closest("[data-blog-id]");
+            const blogId = bannerBox.getAttribute("data-blog-id");
+
+            // Store the selected blog ID in localStorage
+            localStorage.setItem("selectedBlogId", blogId);
+
+            // Navigate to blog.html
+            window.location.href = "blog.html";
+          });
+        });
       }
 
       // Load blogs when page loads
-      document.addEventListener('DOMContentLoaded', function() {
-         loadAdminBlogs();
-         attachBlogClickHandlers();
+      document.addEventListener("DOMContentLoaded", function () {
+        loadAdminBlogs();
+        attachBlogClickHandlers();
       });
 
       // Listen for storage changes (when blogs are added from admin panel)
-      window.addEventListener('storage', function(e) {
-         if (e.key === 'adminBlogs') {
-            loadAdminBlogs();
-         }
+      window.addEventListener("storage", function (e) {
+        if (e.key === "adminBlogs") {
+          loadAdminBlogs();
+        }
       });
-   </script>
-   <script src="sale.js"></script>
-   <script src="admin.js"></script>
-   <script src="dashboard-auth.js"></script>
+    </script>
+    <script src="sale.js"></script>
+    <script src="admin.js"></script>
+    <script src="dashboard-auth.js"></script>
 
-   <!-- Floating WhatsApp Button -->
-   <a href="https://wa.me/2348110182535?text=Hello%20AFROCRIB%20Restaurant!%20I%27d%20like%20to%20make%20an%20inquiry." 
-      class="whatsapp-float" 
-      target="_blank" 
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/2348110182535?text=Hello%20AFROCRIB%20Restaurant!%20I%27d%20like%20to%20make%20an%20inquiry."
+      class="whatsapp-float"
+      target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp">
+      aria-label="Chat with us on WhatsApp"
+    >
       <i class="fab fa-whatsapp" aria-hidden="true"></i>
-   </a>
-
-</body>
+    </a>
+  </body>
 </html>
- 
