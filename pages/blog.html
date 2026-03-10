@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy Something</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <link rel="stylesheet" href="sale.css">
-    <link rel="stylesheet" href="blog.css">
-    <link rel="stylesheet" href="verify-modal.css">
+    <link rel="stylesheet" href="../assets/css/sale.css">
+    <link rel="stylesheet" href="../assets/css/blog.css">
+    <link rel="stylesheet" href="../assets/css/verify-modal.css">
 </head>
 <body>
     <section id="header">
         <div class="restaurant-name">
             <div class="restaurant-letters">
                 <span class="afr-text">AFR</span>
-                <a href="index.html" aria-label="Go to homepage">
-                    <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="Logo as O">
+                <a href="../index.html" aria-label="Go to homepage">
+                    <img src="../assets/images/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="Logo as O">
                 </a>
                 <span class="crib-text">CRIB</span>
             </div>
         </div>
             <div>
                 <ul id="navbar">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li class="dropdown-nav">
@@ -71,7 +71,7 @@
         <div id="all-blogs-view">
             <div class="blog-box">
             <div class="blog-img">
-                <img src="Saleimages/Wed/Healthylife.avif" alt="Healthy lifestyle image">
+                <img src="../assets/images/Wed/Healthylife.avif" alt="Healthy lifestyle image">
             </div>
             <div class="blog-details">
                 <h4>The Mediterranean Diet: A Path to Longevity and Wellness</h4>
@@ -86,7 +86,7 @@
         </div>
         <div class="blog-box">
             <div class="blog-img">
-                <img src="Saleimages/Tues/pngaaa.com-489195.png" alt="Happy heart and belly image">
+                <img src="../assets/images/Tues/pngaaa.com-489195.png" alt="Happy heart and belly image">
             </div>
             <div class="blog-details">
                 <h4>The Gut-Brain Connection: How Food Affects Your Mood</h4>
@@ -102,7 +102,7 @@
         </div>
         <div class="blog-box">
             <div class="blog-img">
-                <img src="Saleimages/Tues/pngaaa.com-489195.png" alt="Unique taste image">
+                <img src="../assets/images/Tues/pngaaa.com-489195.png" alt="Unique taste image">
             </div>
             <div class="blog-details">
                 <h4>The Science of Taste: Why We Love What We Love</h4>
@@ -118,7 +118,7 @@
         </div>
         <div class="blog-box">
             <div class="blog-img">
-                <img src="Saleimages/Tues/pngaaa.com-489195.png" alt="Harmonizing ingredients image">
+                <img src="../assets/images/Tues/pngaaa.com-489195.png" alt="Harmonizing ingredients image">
             </div>
             <div class="blog-details">
                 <h4>The Art of Food Pairing: Creating Culinary Harmony</h4>
@@ -195,7 +195,7 @@
    <footer class="section-p1" role="contentinfo">
         <div class="footer-container">
             <div class="footer-section footer-brand">
-                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" 
+                <img src="../assets/images/—Pngtree—restaurant logo_7932128.png" 
                      class="logo" 
                      height="50" 
                      alt="Restaurant logo">
@@ -274,8 +274,9 @@
     </footer>
 
    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-   <script src="auth-simple.js"></script>
-   <script src="verify-modal.js"></script>
+    <script>window.SITE_ROOT = "../"; window.SITE_PAGES = ""; window.SITE_IMAGES = "../assets/images/";</script>
+   <script src="../assets/js/auth-simple.js"></script>
+   <script src="../assets/js/verify-modal.js"></script>
    <script>
       // Handle Join Now button click
       document.getElementById('join-btn')?.addEventListener('click', async () => {
@@ -370,7 +371,7 @@
                         <p class="blog-meta">By ${blog.author} | ${blog.date}</p>
                         <div class="blog-content">${blog.content.replace(/\n/g, '<br><br>')}</div>
                         <br>
-                        <a href="index.html" class="back-to-home">← Back to Home</a>
+                        <a href="../index.html" class="back-to-home">← Back to Home</a>
                      </div>
                   </div>
                `;
@@ -384,7 +385,7 @@
       // Load blog on page load
       document.addEventListener('DOMContentLoaded', loadSelectedBlog);
    </script>
-   <script src="sale.js"></script>
-   <script src="dashboard-auth.js"></script>
+   <script src="../assets/js/sale.js"></script>
+   <script src="../assets/js/dashboard-auth.js"></script>
 </body>
 </html> 

@@ -6,7 +6,7 @@
     <title>Shopping Cart - Delicious Meals</title>
     <meta name="description" content="Review and checkout your delicious meal selections">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <link rel="stylesheet" href="sale.css">
+    <link rel="stylesheet" href="../assets/css/sale.css">
 </head>
 <body>
     <header id="header" role="banner">
@@ -14,15 +14,15 @@
             <div class="restaurant-name">
                 <div class="restaurant-letters">
                     <span class="afr-text">AFR</span>
-                    <a href="index.html" class="logo-link" aria-label="Go to homepage">
-                        <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="Restaurant logo">
+                    <a href="../index.html" class="logo-link" aria-label="Go to homepage">
+                        <img src="../assets/images/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="Restaurant logo">
                     </a>
                     <span class="crib-text">CRIB</span>
                 </div>
             </div>   
             <div class="nav-wrapper">
                 <ul id="navbar">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li class="dropdown-nav">
@@ -78,7 +78,7 @@
             <p>Review your delicious meal selections and proceed to checkout</p>
             <nav aria-label="Breadcrumb">
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li aria-current="page">Cart</li>
                 </ol>
@@ -100,7 +100,7 @@
                         <!-- Cart Item 1 -->
                         <article class="cart-item-card">
                             <div class="item-image">
-                                <img src="Saleimages/Wed/NIGERIAN JOLLOF RICE.jfif" 
+                                <img src="../assets/images/Wed/NIGERIAN JOLLOF RICE.jfif" 
                                      alt="Nigerian Jollof Rice - A flavorful rice dish with vegetables and spices"
                                      loading="lazy">
                             </div>
@@ -159,7 +159,7 @@
                         <!-- Cart Item 2 -->
                         <article class="cart-item-card">
                             <div class="item-image">
-                                <img src="Saleimages/Wed/ohaSoup.webp" 
+                                <img src="../assets/images/Wed/ohaSoup.webp" 
                                      alt="Oha Soup - Traditional Nigerian soup with oha leaves and assorted meat"
                                      loading="lazy">
                             </div>
@@ -218,7 +218,7 @@
                         <!-- Cart Item 3 -->
                         <article class="cart-item-card">
                             <div class="item-image">
-                                <img src="Saleimages/Wed/Moimoi.jpg" 
+                                <img src="../assets/images/Wed/Moimoi.jpg" 
                                      alt="Moimoi - Steamed bean pudding with vegetables and spices"
                                      loading="lazy">
                             </div>
@@ -597,7 +597,7 @@
    <footer class="section-p1" role="contentinfo">
         <div class="footer-container">
             <div class="footer-section footer-brand"> 
-                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" 
+                <img src="../assets/images/—Pngtree—restaurant logo_7932128.png" 
                      class="logo" 
                      height="50" 
                      alt="Restaurant logo">
@@ -778,13 +778,14 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>       
-    <script src="auth.js"></script>
-    <script src="auth-simple.js"></script>
-    <script src="sale.js"></script>
-    <script src="checkout.js"></script>
-    <script src="cart-auth.js"></script>
-    <script src="dashboard-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>window.SITE_ROOT = "../"; window.SITE_PAGES = ""; window.SITE_IMAGES = "../assets/images/";</script>       
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/auth-simple.js"></script>
+    <script src="../assets/js/sale.js"></script>
+    <script src="../assets/js/checkout.js"></script>
+    <script src="../assets/js/cart-auth.js"></script>
+    <script src="../assets/js/dashboard-auth.js"></script>
     <script>
       // Toggle dashboard dropdown on click
       const dashboardLink = document.getElementById('dashboard-link');

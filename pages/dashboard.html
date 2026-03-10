@@ -256,7 +256,8 @@
 
     <!-- Load Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="auth-simple.js"></script>
+    <script>window.SITE_ROOT = "../"; window.SITE_PAGES = ""; window.SITE_IMAGES = "../assets/images/";</script>
+    <script src="../assets/js/auth-simple.js"></script>
 
     <script>
         // Protect this page - redirect if not logged in
@@ -292,7 +293,7 @@
                 if (!session) {
                     // Not logged in, redirect to home
                     alert('Please login to access the dashboard');
-                    window.location.href = 'index.html';
+                    window.location.href = '../index.html';
                     return;
                 }
 
@@ -300,7 +301,7 @@
                 loadUserData();
             } catch (error) {
                 console.error('Auth check error:', error);
-                window.location.href = 'index.html';
+                window.location.href = '../index.html';
             }
         }
 

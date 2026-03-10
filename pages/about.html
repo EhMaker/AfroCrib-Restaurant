@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy Something</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <link rel="stylesheet" href="sale.css">
-    <link rel="stylesheet" href="verify-modal.css">
+    <link rel="stylesheet" href="../assets/css/sale.css">
+    <link rel="stylesheet" href="../assets/css/verify-modal.css">
 </head>
 <body>
     <section id="header">
         <div class="restaurant-name">
             <div class="restaurant-letters">
                 <span class="afr-text">AFR</span>
-                <a href="index.html" title="Go to Homepage">
-                    <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="AFROCRIB Restaurant Logo">
+                <a href="../index.html" title="Go to Homepage">
+                    <img src="../assets/images/—Pngtree—restaurant logo_7932128.png" class="logo-as-o" alt="AFROCRIB Restaurant Logo">
                 </a>
                 <span class="crib-text">CRIB</span>
             </div>
         </div>
             <div>
                 <ul id="navbar">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a class="active" href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li class="dropdown-nav">
@@ -65,7 +65,7 @@
     <section id="about-head" class="section-p1">
         <div class="about-content">
             <div class="about-logo-section">
-                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" alt="AFROCRIB - Premium Restaurant Experience Logo">
+                <img src="../assets/images/—Pngtree—restaurant logo_7932128.png" alt="AFROCRIB - Premium Restaurant Experience Logo">
             </div>
             <div class="about-text-content">
                 <h2>Our Story</h2>
@@ -137,7 +137,7 @@
    <footer class="section-p1" role="contentinfo">
         <div class="footer-container">
             <div class="footer-section footer-brand">
-                <img src="Saleimages/—Pngtree—restaurant logo_7932128.png" 
+                <img src="../assets/images/—Pngtree—restaurant logo_7932128.png" 
                      class="logo" 
                      height="50" 
                      alt="Restaurant logo">
@@ -218,8 +218,9 @@
 
 
    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-   <script src="auth-simple.js"></script>
-   <script src="verify-modal.js"></script>
+    <script>window.SITE_ROOT = "../"; window.SITE_PAGES = ""; window.SITE_IMAGES = "../assets/images/";</script>
+   <script src="../assets/js/auth-simple.js"></script>
+   <script src="../assets/js/verify-modal.js"></script>
    <script>
       // Handle Join Now button click
       document.getElementById('join-btn')?.addEventListener('click', async () => {
@@ -291,7 +292,7 @@
          });
       }
    </script>
-   <script src="sale.js"></script>
-   <script src="dashboard-auth.js"></script>
+   <script src="../assets/js/sale.js"></script>
+   <script src="../assets/js/dashboard-auth.js"></script>
 </body>
 </html> 

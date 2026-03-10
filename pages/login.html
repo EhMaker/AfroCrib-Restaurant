@@ -181,7 +181,8 @@
 
     <!-- Load Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="auth-simple.js"></script>
+    <script>window.SITE_ROOT = "../"; window.SITE_PAGES = ""; window.SITE_IMAGES = "../assets/images/";</script>
+    <script src="../assets/js/auth-simple.js"></script>
 
     <script>
         // Redirect if already logged in
